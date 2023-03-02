@@ -1,0 +1,30 @@
+.navbar {
+    z-index: 1000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(white, 0.75);
+    .logoContainer {
+        position: relative;
+        width: 120px;
+        height: 50px;
+        .logo {
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    }
+    .linkContainer {
+        // gap: 48px;
+        font-size: 16px;
+    }
+}
+
+// @media screen and (max-width: 991px) {
+//     .navbar {
+//         .linkContainer {
+//             gap: unset;
+//         }
+//     }
+// }

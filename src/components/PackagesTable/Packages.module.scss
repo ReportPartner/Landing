@@ -1,0 +1,220 @@
+@import "../../styles/constants.scss";
+
+.main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 24px;
+    .packageRoot {
+        width: 100%;
+
+        .title {
+            text-align: center;
+            font-family: $font-title;
+            font-size: 36px;
+            font-weight: 500;
+        }
+
+        .tableContainer {
+            max-width: calc(100vw - 40px);
+            overflow-x: auto;
+
+            .table {
+                width: 100%;
+                table-layout: auto;
+                border-collapse: collapse;
+
+                th:first-child {
+                    width: 30%;
+                }
+
+                .heading {
+                    z-index: 20;
+                    background-color: white;
+                    .packageTitle {
+                        text-align: center;
+                        padding: 24px;
+
+                        &.start {
+                            color: limegreen;
+                        }
+
+                        &.start_p {
+                            color: orange;
+                        }
+
+                        &.basic {
+                            color: gray;
+                        }
+
+                        &.standart {
+                            color: blueviolet;
+                        }
+
+                        &.standart_p {
+                            color: gold;
+                        }
+
+                        &.business {
+                            color: red;
+                        }
+                    }
+                }
+
+                $borderColor: rgba(210, 210, 210, 0.5);
+                $treeViewColor: #bacfa4;
+                $treeViewColorOpen: #f6fcef;
+                $treeViewColorHover: #eaefe4;
+
+                .body {
+                    border: 1px solid $borderColor;
+                    font-family: $font-text;
+                    .subpackage {
+                        border-bottom: 1px solid $borderColor;
+                        td {
+                            background-color: $white-400;
+                        }
+                        & > td:first-child {
+                            position: sticky;
+                            left: 0;
+                        }
+                        .rowTitleContent {
+                            width: 100%;
+                            display: grid;
+                            align-items: stretch;
+                            transition: background 0.2s;
+                            .shifter {
+                                height: 100%;
+                                background-color: $treeViewColor;
+                            }
+                            .serviceTitle {
+                                width: 100%;
+                                padding: 12px 16px;
+                                line-height: 22px;
+                                position: relative;
+                                display: flex;
+                                justify-content: space-between;
+                                align-items: center;
+                                gap: 8px;
+                                .chevron {
+                                    $chevronSize: 24px;
+                                    width: $chevronSize;
+                                    height: $chevronSize;
+                                    min-width: $chevronSize;
+                                    min-height: $chevronSize;
+                                    border-radius: $chevronSize;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                    transition: transform 0.3s, background, 0.3s;
+                                    color: $green-400;
+                                    &.open {
+                                        color: white;
+                                        background-color: $green-400;
+                                        transform: rotate(-180deg);
+                                        transform-origin: center center;
+                                    }
+                                }
+                                .rowTitle {
+                                    width: 100%;
+                                    display: grid;
+                                    grid-template-columns: 1fr auto;
+                                    gap: 16px;
+                                    .infoIcon {
+                                        color: $green-400;
+                                    }
+                                }
+                                &.expanded {
+                                    font-style: italic;
+                                }
+                            }
+                        }
+                        .contentPart {
+                            div {
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                font-weight: 300;
+                                .icon {
+                                    color: $green-400;
+                                    font-size: 20px;
+                                }
+                            }
+                        }
+                        &.hasSub .rowTitleContent {
+                            grid-template-columns: auto auto 1fr;
+                        }
+                        &:not(.hasSub) .rowTitleContent {
+                            grid-template-columns: auto 1fr;
+                        }
+                        &.subpackage_1 {
+                            .rowTitleContent {
+                                font-weight: 700;
+                            }
+                        }
+                        $shiftSize: 12px;
+                        &.subpackage_2 {
+                            $localShift: $shiftSize;
+                            .rowTitleContent {
+                                font-weight: 600;
+                                .shifter {
+                                    width: $localShift;
+                                }
+                            }
+                            &.expanded {
+                                .rowTitleContent {
+                                    .shifter {
+                                        width: $localShift + $shiftSize;
+                                    }
+                                }
+                            }
+                        }
+                        &.subpackage_3 {
+                            $localShift: $shiftSize * 2;
+                            .rowTitleContent {
+                                font-weight: 400;
+                                .shifter {
+                                    width: $localShift;
+                                }
+                            }
+                            &.expanded {
+                                .rowTitleContent {
+                                    .shifter {
+                                        width: $localShift + $shiftSize;
+                                    }
+                                }
+                            }
+                        }
+                        &.expanded {
+                            td {
+                                background-color: rgba($treeViewColor, 0.2);
+                            }
+                            .contentPart {
+                                div {
+                                    .icon {
+                                        font-size: 14px;
+                                        color: rgba($green-400, 0.5);
+                                    }
+                                }
+                            }
+                        }
+                        &.hasSub {
+                            cursor: pointer;
+                            &.open td{
+                                background-color: $treeViewColorOpen;
+                            }
+                        }
+                        &:hover,
+                        &.hasSub.open:hover {
+                            td {
+                                background-color: $treeViewColorHover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

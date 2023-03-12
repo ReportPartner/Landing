@@ -1,0 +1,23 @@
+@import "../../styles/constants.scss";
+
+.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+    padding: 32px 0;
+    .title {
+        font-size: 36px;
+        font-weight: 800;
+        font-family: $font-title;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .main {
+        .title {
+            font-size: 28px;
+        }
+    }
+}

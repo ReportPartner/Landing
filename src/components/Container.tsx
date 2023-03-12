@@ -1,9 +1,9 @@
 import { CSSProperties } from "react";
 
-const Container = ({ style, children }: { style?: CSSProperties; children?: React.ReactNode }) => {
+const Container = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
     return (
-        <div style={style} className="container">
-            {children}
+        <div {...props} className="container">
+            {props.children}
         </div>
     );
 };

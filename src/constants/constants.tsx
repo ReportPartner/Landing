@@ -330,55 +330,52 @@ export const ALL_PACKAGES: ServicesPackType = [
                             },
                             {
                                 title: "Ведение он-лайн банкинга",
-                                packages: [
-                                    { id: PACKAGES.standart.id },
-                                    { id: PACKAGES.standart_p.id },
-                                    { id: PACKAGES.business.id },
-                                ],
-                            },
-                            {
-                                title: "Платежи",
-                                packages: [
-                                    {
-                                        id: PACKAGES.standart.id,
-                                        frequency: FREQUENCES.weekly,
-                                    },
-                                    {
-                                        id: PACKAGES.standart_p.id,
-                                        frequency: FREQUENCES.weekly,
-                                    },
-                                    {
-                                        id: PACKAGES.business.id,
-                                        frequency: FREQUENCES.daily,
-                                    },
-                                ],
-                            },
-                            {
-                                title: "Валютные операции",
                                 expand: [
                                     {
-                                        title: "Подготовка конвертации валютных операций",
+                                        title: "Платежи",
                                         packages: [
                                             {
+                                                id: PACKAGES.standart.id,
+                                                frequency: FREQUENCES.weekly,
+                                            },
+                                            {
                                                 id: PACKAGES.standart_p.id,
-                                                frequency: FREQUENCES.necessary,
+                                                frequency: FREQUENCES.weekly,
                                             },
                                             {
                                                 id: PACKAGES.business.id,
-                                                frequency: FREQUENCES.necessary,
+                                                frequency: FREQUENCES.daily,
                                             },
                                         ],
                                     },
                                     {
-                                        title: "Присвоение УНК к договорам",
-                                        packages: [
+                                        title: "Валютные операции",
+                                        expand: [
                                             {
-                                                id: PACKAGES.standart_p.id,
-                                                frequency: FREQUENCES.necessary,
+                                                title: "Подготовка конвертации валютных операций",
+                                                packages: [
+                                                    {
+                                                        id: PACKAGES.standart_p.id,
+                                                        frequency: FREQUENCES.necessary,
+                                                    },
+                                                    {
+                                                        id: PACKAGES.business.id,
+                                                        frequency: FREQUENCES.necessary,
+                                                    },
+                                                ],
                                             },
                                             {
-                                                id: PACKAGES.business.id,
-                                                frequency: FREQUENCES.necessary,
+                                                title: "Присвоение УНК к договорам",
+                                                packages: [
+                                                    {
+                                                        id: PACKAGES.standart_p.id,
+                                                        frequency: FREQUENCES.necessary,
+                                                    },
+                                                    {
+                                                        id: PACKAGES.business.id,
+                                                        frequency: FREQUENCES.necessary,
+                                                    },
+                                                ],
                                             },
                                         ],
                                     },
@@ -841,7 +838,7 @@ export const ALL_PACKAGES: ServicesPackType = [
                                 ],
                             },
                             {
-                                title: "Декларация по ИПН и соц налогу 200.00",
+                                title: "Декларация по ИПН и соц. налогу 200.00",
                                 packages: [
                                     {
                                         id: PACKAGES.standart.id,
@@ -1080,7 +1077,7 @@ export const ALL_PACKAGES: ServicesPackType = [
                         ],
                     },
                     {
-                        title: "Формирование календаря оплат (ежедневно, ежемесячно,ежеквартально) Cash Flow",
+                        title: "Формирование календаря оплат (ежедневно, ежемесячно, ежеквартально) Cash Flow",
                         packages: [
                             {
                                 id: PACKAGES.business.id,
@@ -1219,7 +1216,7 @@ export const ALL_PACKAGES: ServicesPackType = [
                         ],
                     },
                     {
-                        title: "Приказы (прием, увольнение, отпуска и т.д.)4",
+                        title: "Приказы (прием, увольнение, отпуска и т.д.)",
                         packages: [
                             {
                                 id: PACKAGES.basic.id,
@@ -1359,7 +1356,7 @@ export const ALL_PACKAGES: ServicesPackType = [
                         ],
                     },
                     {
-                        title: "Постоянная вовлеченность в процессы ведения бизнеса (whatsapp группа) с 9.00-18.00",
+                        title: "Постоянная вовлеченность в процессы ведения бизнеса (WhatsApp группа) с 9.00-18.00",
                         packages: [
                             {
                                 id: PACKAGES.basic.id,
@@ -1394,10 +1391,20 @@ export const ALL_PACKAGES: ServicesPackType = [
                 title: "Юр. услуги",
                 subservices: [
                     {
-                        title: "Открытие ИП, ТОО",
+                        title: "Открытие ТОО/ИП",
                         expand: [
                             {
                                 title: "без учредительных документов",
+                                packages: [
+                                    {
+                                        id: PACKAGES.standart.id,
+                                        frequency: FREQUENCES.once,
+                                    },
+                                    {
+                                        id: PACKAGES.standart_p.id,
+                                        frequency: FREQUENCES.once,
+                                    },
+                                ],
                             },
                             {
                                 title: "с учредительными документами",
@@ -1411,7 +1418,7 @@ export const ALL_PACKAGES: ServicesPackType = [
                         ],
                     },
                     {
-                        title: "Перерегистрация ИП ТОО, юр адрес, директор (решение и приказ учредителя)",
+                        title: "Перерегистрация ИП ТОО, юр. адрес, директор (решение и приказ учредителя)",
                         packages: [
                             {
                                 id: PACKAGES.standart_p.id,

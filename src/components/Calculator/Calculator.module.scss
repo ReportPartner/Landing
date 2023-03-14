@@ -174,17 +174,18 @@
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
 
+        &::after {
+            top: unset;
+            bottom: 0;
+            transform: translateY(50%);
+        }
         .divider {
             width: 100%;
             height: 1px;
         }
 
         .imageContainer {
-            left: 0;
-            right: unset;
-            background-color: red;
-            width: 200px;
-            transform: rotate(90deg);
+            display: none;
         }
         .topographic {
             object-position: bottom left;
@@ -194,6 +195,11 @@
 
 @media screen and (max-width: 576px) {
     .main {
+        .imageContainer {
+            display: block;
+            max-width: 200px;
+            width: 45%;
+        }
         .inputsContainer {
             grid-template-columns: auto;
             grid-template-areas:

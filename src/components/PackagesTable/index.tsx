@@ -18,16 +18,21 @@ const countServicesTotal = (packageItem: ServiceType) => {
     return currentCount;
 };
 
+const hasDeepPackage = (targetPackageItem: ServiceType, targetPackageId: string): boolean => {
+    if (targetPackageItem.packages?.some((itemPackages) => itemPackages.id === targetPackageId)) return true;
+    if (
+        targetPackageItem.expand?.some((expandItem) =>
+            expandItem.packages?.some((itemPackages) => itemPackages.id === targetPackageId)
+        )
+    )
+        return true;
+    if (targetPackageItem.expand?.some((expandItem) => hasDeepPackage(expandItem, targetPackageId))) return true;
+    return false;
+};
+
 const countServicesByPackage = (packageItem: ServiceType, packageId: string) => {
     let currentCount = 0;
-    if (
-        packageItem.packages?.some((itemPackages) => itemPackages.id === packageId) ||
-        (!!packageItem.expand &&
-            packageItem.expand.some((expandItem) =>
-                expandItem.packages?.some((itemPackages) => itemPackages.id === packageId)
-            ))
-    )
-        currentCount++;
+    if (hasDeepPackage(packageItem, packageId)) currentCount++;
     if (packageItem.subservices) {
         packageItem.subservices.forEach((subpackageItem) => {
             currentCount += countServicesByPackage(subpackageItem, packageId);
@@ -90,18 +95,27 @@ const Subpackage = ({
             computedFrequenciesTitle.push(<br key={`${packageItem.title}_${computedFrequencie.title}_${index}_br`} />);
         computedFrequenciesTitle.push([
             <strong key={`${packageItem.title}_${computedFrequencie.title}_${index}_strong`} style={{ marginRight: "8px" }}>
-                {computedFrequencies.length !== 1 ? computedFrequencie.title : "Все пакеты"}:
+                {computedFrequencies.length !== 1
+                    ? computedFrequencie.title
+                    : computedFrequencie.title.split(", ").length === 1
+                    ? computedFrequencie.title
+                    : "Все пакеты"}
+                :
             </strong>,
             <span key={`${packageItem.title}_${computedFrequencie.title}_${index}_span`}>{computedFrequencie.value}</span>,
         ]);
     });
 
+    const shifterSize = 12;
     return (
         <>
             <tr className={subpackageClasses.join(" ")} onClick={handleClick}>
                 <td>
                     <div className={styles.rowTitleContent}>
-                        <div className={styles.shifter} />
+                        <div
+                            className={styles.shifter}
+                            style={{ width: `${shifterSize * (level - 1) + (expanded ? shifterSize : 0)}px` }}
+                        />
                         <div className={serviceTitleClasses.join(" ")}>
                             {hasSub && (
                                 <div className={chevronClasses.join(" ")}>
@@ -139,17 +153,16 @@ const Subpackage = ({
                                 ? `${countServicesByPackage(packageItem, packageHeading.id)} / ${countServicesTotal(
                                       packageItem
                                   )}`
-                                : (packageItem.packages?.some((itemPackages) => itemPackages.id === packageHeading.id) ||
-                                      (!!packageItem.expand &&
-                                          packageItem.expand.some((expandItem) =>
-                                              expandItem.packages?.some(
-                                                  (itemPackages) => itemPackages.id === packageHeading.id
-                                              )
-                                          ))) &&
+                                : hasDeepPackage(packageItem, packageHeading.id) &&
                                   (packageItem.packages?.find((itemPackages) => itemPackages.id === packageHeading.id)
                                       ?.text ? (
-                                      packageItem.packages?.find((itemPackages) => itemPackages.id === packageHeading.id)
-                                          ?.text
+                                      <span>
+                                          {
+                                              packageItem.packages?.find(
+                                                  (itemPackages) => itemPackages.id === packageHeading.id
+                                              )?.text
+                                          }
+                                      </span>
                                   ) : expanded ? (
                                       <FontAwesomeIcon icon={faStarOfLife} className={styles.icon} />
                                   ) : (
@@ -162,7 +175,7 @@ const Subpackage = ({
             {packageItem.expand?.map((expandPackage) => (
                 <Subpackage
                     packageItem={expandPackage}
-                    level={level}
+                    level={level + (expanded ? 1 : 0)}
                     packageId={packageId}
                     expanded
                     key={`${packageItem.title}_${expandPackage.title}`}
@@ -193,8 +206,11 @@ const PackagesTable = () => {
                                 <tr>
                                     <th />
                                     {PACKAGES_HEADING[packageRoot.packageId].map((packageItem, index) => (
-                                        <th className={`${styles.packageTitle} ${styles[packageItem.id]}`} key={index}>
-                                            {packageItem.title}
+                                        <th key={index}>
+                                            <div className={`${styles.packageTitle} ${styles[packageItem.id]}`}>
+                                                <span className={styles.title}>{packageItem.title}</span>
+                                                <span className={styles.price}>{packageItem.price.toLocaleString()}</span>
+                                            </div>
                                         </th>
                                     ))}
                                 </tr>

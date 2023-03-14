@@ -36,29 +36,37 @@
                     .packageTitle {
                         text-align: center;
                         padding: 24px;
-
+                        display: flex;
+                        flex-direction: column;
+                        gap: 16px;
+                        .title {
+                            font-size: 30px;
+                        }
+                        .price {
+                            font-size: 20px;
+                            &::after {
+                                content: "\20B8";
+                                margin-left: 4px;
+                                font-size: 14px;
+                            }
+                        }
                         &.start {
-                            color: limegreen;
+                            color: #278c8f;
                         }
-
                         &.start_p {
-                            color: orange;
+                            color: #5e278f;
                         }
-
                         &.basic {
-                            color: gray;
+                            color: #588f27;
                         }
-
                         &.standart {
-                            color: blueviolet;
+                            color: #278c8f;
                         }
-
                         &.standart_p {
-                            color: gold;
+                            color: #5e278f;
                         }
-
                         &.business {
-                            color: red;
+                            color: #8f2a27;
                         }
                     }
                 }
@@ -74,7 +82,8 @@
                     .subpackage {
                         border-bottom: 1px solid $borderColor;
                         td {
-                            background-color: $white-400;
+                            background: $white-400;
+                            transition: background 0.2s;
                         }
                         & > td:first-child {
                             position: sticky;
@@ -84,7 +93,6 @@
                             width: 100%;
                             display: grid;
                             align-items: stretch;
-                            transition: background 0.2s;
                             .shifter {
                                 height: 100%;
                                 background-color: $treeViewColor;
@@ -137,6 +145,10 @@
                                 justify-content: center;
                                 align-items: center;
                                 font-weight: 300;
+                                span {
+                                    text-align: center;
+                                    padding: 0 8px;
+                                }
                                 .icon {
                                     color: $green-400;
                                     font-size: 20px;
@@ -154,37 +166,14 @@
                                 font-weight: 700;
                             }
                         }
-                        $shiftSize: 12px;
                         &.subpackage_2 {
-                            $localShift: $shiftSize;
                             .rowTitleContent {
                                 font-weight: 600;
-                                .shifter {
-                                    width: $localShift;
-                                }
-                            }
-                            &.expanded {
-                                .rowTitleContent {
-                                    .shifter {
-                                        width: $localShift + $shiftSize;
-                                    }
-                                }
                             }
                         }
                         &.subpackage_3 {
-                            $localShift: $shiftSize * 2;
                             .rowTitleContent {
                                 font-weight: 400;
-                                .shifter {
-                                    width: $localShift;
-                                }
-                            }
-                            &.expanded {
-                                .rowTitleContent {
-                                    .shifter {
-                                        width: $localShift + $shiftSize;
-                                    }
-                                }
                             }
                         }
                         &.expanded {
@@ -202,14 +191,14 @@
                         }
                         &.hasSub {
                             cursor: pointer;
-                            &.open td{
+                            &.open td {
                                 background-color: $treeViewColorOpen;
                             }
                         }
                         &:hover,
                         &.hasSub.open:hover {
                             td {
-                                background-color: $treeViewColorHover;
+                                background: $treeViewColorHover;
                             }
                         }
                     }

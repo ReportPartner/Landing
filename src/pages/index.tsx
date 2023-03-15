@@ -8,6 +8,7 @@ import ArticlePart from "@/components/ArticlePart";
 import Calculator from "@/components/Calculator";
 import { PAGE_PARTS } from "@/constants/constants";
 import ServicesTable from "@/components/PackagesTable";
+import Services from "@/components/Services";
 
 export default function Home() {
     return (
@@ -114,7 +115,7 @@ export default function Home() {
                             title={PAGE_PARTS.services.title}
                             id={PAGE_PARTS.services.id}
                         >
-                            asd ss
+                            <Services />
                         </ArticlePart>
                         <ArticlePart
                             title={PAGE_PARTS.about.title}

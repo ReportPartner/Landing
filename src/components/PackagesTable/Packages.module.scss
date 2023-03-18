@@ -33,6 +33,11 @@
                 .heading {
                     z-index: 20;
                     background-color: white;
+                    & th:first-child {
+                        background-color: white;
+                        position: sticky;
+                        left: 0;
+                    }
                     .packageTitle {
                         text-align: center;
                         padding: 24px;
@@ -178,7 +183,7 @@
                         }
                         &.expanded {
                             td {
-                                background-color: rgba($treeViewColor, 0.2);
+                                background-color: #edf5e6;
                             }
                             .contentPart {
                                 div {
@@ -199,6 +204,36 @@
                         &.hasSub.open:hover {
                             td {
                                 background: $treeViewColorHover;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $laptop-size) {
+    .main {
+        .packageRoot {
+            .tableContainer {
+                .table {
+                    .heading {
+                        .packageTitle {
+                            .title {
+                                font-size: 22px;
+                            }
+                            .price {
+                                font-size: 16px;
+                            }
+                        }
+                    }
+                    .body {
+                        .subpackage {
+                            .rowTitleContent {
+                                .serviceTitle {
+                                    padding: 8px;
+                                }
                             }
                         }
                     }

@@ -1,3 +1,5 @@
+@import "./constants.scss";
+
 * {
     padding: 0;
     margin: 0;
@@ -80,4 +82,27 @@ h6 {
 
 .ant-float-btn .ant-float-btn-body .ant-float-btn-content {
     padding: 0;
+}
+
+.alice-carousel__dots {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    .alice-carousel__dots-item.__active {
+        background-color: $green-400 !important;
+    }
+}
+.alice-carousel__next-btn,
+.alice-carousel__prev-btn {
+    width: max-content !important;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.alice-carousel__next-btn {
+    right: 0;
+}
+.alice-carousel__prev-btn {
+    left: 0;
 }

@@ -114,7 +114,7 @@
     }
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: $desktop-size) {
     .main {
         .hero {
             .textContainer {
@@ -129,7 +129,7 @@
     }
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: $laptop-size) {
     .main {
         .hero {
             .textContainer {
@@ -144,7 +144,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: $tablet-size) {
     .main {
         .hero {
             .textContainer {
@@ -170,7 +170,7 @@
     }
 }
 
-@media screen and (max-width: 576px) {
+@media screen and (max-width: $mobile-size) {
     .main {
         .hero {
             .textContainer {

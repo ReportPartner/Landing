@@ -1,9 +1,8 @@
 import { ALL_PACKAGES, PACKAGES_HEADING, ServiceType } from "@/constants/constants";
-import { faChevronDown, faCheck, faCircleInfo, faStarOfLife, faArrowTurnDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Tooltip } from "antd";
 import { useState } from "react";
 import styles from "./Packages.module.scss";
+import { FaChevronDown, FaCheck, FaInfoCircle, FaStarOfLife, FaLevelDownAlt } from 'react-icons/fa';
 
 const countServicesTotal = (packageItem: ServiceType) => {
     if (!packageItem.subservices) return 1;
@@ -119,7 +118,7 @@ const Subpackage = ({
                         <div className={serviceTitleClasses.join(" ")}>
                             {hasSub && (
                                 <div className={chevronClasses.join(" ")}>
-                                    <FontAwesomeIcon icon={faChevronDown} />
+                                    <FaChevronDown />
                                 </div>
                             )}
                             <div className={styles.rowTitle}>
@@ -133,13 +132,13 @@ const Subpackage = ({
                                               overlayInnerStyle={{ width: "max-content" }}
                                           >
                                               <div className={styles.infoIcon}>
-                                                  <FontAwesomeIcon icon={faCircleInfo} />
+                                                  <FaInfoCircle />
                                               </div>
                                           </Tooltip>
                                       )
                                     : !!packageItem.expand && (
                                           <div className={styles.infoIcon}>
-                                              <FontAwesomeIcon icon={faArrowTurnDown} />
+                                              <FaLevelDownAlt />
                                           </div>
                                       )}
                             </div>
@@ -164,9 +163,9 @@ const Subpackage = ({
                                           }
                                       </span>
                                   ) : expanded ? (
-                                      <FontAwesomeIcon icon={faStarOfLife} className={styles.icon} />
+                                      <FaStarOfLife className={styles.icon} />
                                   ) : (
-                                      <FontAwesomeIcon icon={faCheck} className={styles.icon} />
+                                      <FaCheck className={styles.icon} />
                                   ))}
                         </div>
                     </td>

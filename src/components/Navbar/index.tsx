@@ -1,33 +1,32 @@
-import { PAGE_PARTS } from "@/constants/constants";
+import { CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
-import {
-    Container,
-    Nav,
-    Navbar as BsNavbar,
-    NavDropdown,
-} from "react-bootstrap";
+import { Container, Nav, Navbar as BsNavbar, NavDropdown } from "react-bootstrap";
 import styles from "./Navbar.module.scss";
+import { FaPhone } from "react-icons/fa";
 
 const Navbar = () => {
     return (
         <BsNavbar collapseOnSelect expand="lg" className={styles.navbar}>
             <Container>
                 <div className={styles.logoContainer}>
-                    <Image
-                        src="/RP_logo_abbr.png"
-                        alt="Report Partner"
-                        priority
-                        fill
-                        className={styles.logo}
-                    />
+                    <Image src="/RP_logo_abbr.png" alt="Report Partner" priority fill className={styles.logo} />
                 </div>
-                <BsNavbar.Toggle aria-controls="responsive-navbar-nav" />
+                <div className={styles.mobileTogglerContainer}>
+                    <Nav>
+                        <a
+                            className={`${styles.phoneNumber} ${styles.mobile}`}
+                            href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}
+                        >
+                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER}
+                        </a>
+                    </Nav>
+                    <BsNavbar.Toggle aria-controls="responsive-navbar-nav" />
+                </div>
                 <BsNavbar.Collapse id={`responsive-navbar-nav`}>
-                    <Nav
-                        className={`ms-auto me-auto gap-48 gap-sm-0 ${styles.linkContainer}`}
-                    >
+                    <Nav className={`ms-auto me-auto gap-48 gap-sm-0 ${styles.linkContainer}`}>
                         {Object.keys(PAGE_PARTS).map((pagePart) => (
                             <Nav.Link
+                                className={styles.link}
                                 href={`#${PAGE_PARTS[pagePart].id}`}
                                 key={PAGE_PARTS[pagePart].id}
                             >
@@ -36,7 +35,9 @@ const Navbar = () => {
                         ))}
                     </Nav>
                     <Nav>
-                        <a href="tel:">Номер телефона</a>
+                        <a className={styles.phoneNumber} href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}>
+                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER}
+                        </a>
                     </Nav>
                 </BsNavbar.Collapse>
             </Container>

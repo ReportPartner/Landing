@@ -1,10 +1,12 @@
+@import "../../styles/constants.scss";
+
 .navbar {
     z-index: 1000;
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
-    background-color: rgba(white, 0.75);
+    background-color: rgba(white, 0.85);
     .logoContainer {
         position: relative;
         width: 120px;
@@ -16,15 +18,98 @@
         }
     }
     .linkContainer {
-        // gap: 48px;
-        font-size: 16px;
+        .link {
+            color: black;
+            transition: color .2s;
+            &:hover {
+                color: $green-400;
+            }
+            padding: 4px 10px;
+            font-size: 16px;
+            text-align: center;
+        }
+    }
+    .phoneNumber {
+        color: $green-400;
+        transition: color .2s;
+        &.mobile {
+            display: none;
+        }
+        .icon {
+            font-size: inherit;
+            font-size: 12px;
+            margin-right: 3px;
+        }
+        &:hover {
+            color: $green-500;
+            .icon {
+                animation: shake .5s;
+            }
+        }
+    }
+    .mobileTogglerContainer {
+        display: none;
+    }
+}
+@keyframes shake {
+    0% {
+        transform: rotate(0deg);
+    }
+    10% {
+        transform: rotate(8deg);
+    }
+    20% {
+        transform: rotate(-8deg);
+    }
+    30% {
+        transform: rotate(8deg);
+    }
+    40% {
+        transform: rotate(-8deg);
+    }
+    50% {
+        transform: rotate(8deg);
+    }
+    60% {
+        transform: rotate(-8deg);
+    }
+    70% {
+        transform: rotate(0deg);
     }
 }
 
-// @media screen and (max-width: 991px) {
-//     .navbar {
-//         .linkContainer {
-//             gap: unset;
-//         }
-//     }
-// }
+@media screen and (max-width: $laptop-size) {
+    .navbar {
+        .phoneNumber {
+            &.mobile {
+                display: block;
+            }
+            &:not(.mobile) {
+                display: none;
+            }
+        }
+        .linkContainer {
+            .link {
+                padding: 6px 0;
+                &:first-child {
+                    margin-top: 24px;
+                }
+                &:last-child {
+                    margin-bottom: 24px;
+                }
+                &:not(:last-child)::after {
+                    content: "";
+                    margin: 12px auto 0;
+                    width: 80px;
+                    display: block;
+                    border-bottom: 1px solid rgba($green-400, 0.2);
+                }
+            }
+        }
+        .mobileTogglerContainer {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+    }
+}

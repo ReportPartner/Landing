@@ -1,9 +1,7 @@
 import { PAGE_PARTS } from "@/constants/constants";
-import { faWhatsapp } from "@fortawesome/free-brands-svg-icons";
-import { faCommentDots, faHeadphonesSimple, faPhone, faPhoneAlt, faPhoneSquare, faPhoneSquareAlt, faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { ConfigProvider, FloatButton } from "antd";
 import styles from "./Services.module.scss";
+import { FaWhatsapp, FaCommentDots, FaPhone } from 'react-icons/fa';
 
 const Services = () => {
     const expressCheckUpPrice = 30000;
@@ -46,7 +44,7 @@ const Services = () => {
                     icon={null}
                     description={
                         <div className={styles.shakingContainer}>
-                            <FontAwesomeIcon icon={faCommentDots} className={styles.shakingIcon} />
+                            <FaCommentDots className={styles.shakingIcon} />
                         </div>
                     }
                     trigger="hover"
@@ -55,7 +53,7 @@ const Services = () => {
                     <FloatButton
                         description={
                             <a target="_blank" href={`https://wa.me/+77082244123?text=${whatsAppDefaultMessage}`}>
-                                <FontAwesomeIcon icon={faWhatsapp} fontSize={20} />
+                                <FaWhatsapp fontSize={20} />
                             </a>
                         }
                         shape="square"
@@ -64,7 +62,7 @@ const Services = () => {
                     <FloatButton
                         description={
                             <a target="_blank" href="tel:123-456-7890">
-                                <FontAwesomeIcon icon={faPhone} />
+                                <FaPhone />
                             </a>
                         }
                         shape="square"

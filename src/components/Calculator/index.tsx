@@ -35,35 +35,23 @@ for (let i = 0; i < staffCount; i++) {
         label: CALC_VALUES.staffs[i].title,
     };
 }
-const defaultStaffMark =
-    staffCount > 1 ? parseInt(Object.keys(staffMarks)[1]) : 0;
+const defaultStaffMark = staffCount > 1 ? parseInt(Object.keys(staffMarks)[1]) : 0;
 
 const Calculator = () => {
     const modeOptions = CALC_VALUES.modes.map((option) => option.title);
     const [modeOption, setModeOption] = useState(modeOptions[0]);
-    const modePrice =
-        CALC_VALUES.modes.find((option) => option.title === modeOption)
-            ?.price || 0;
+    const modePrice = CALC_VALUES.modes.find((option) => option.title === modeOption)?.price || 0;
 
     const [activityTypes, setActivityTypes] = useState<string[]>([]);
     const activityTypePrice = activityTypes
         .map(
             (activityType) =>
-                CALC_VALUES.activityTypes.find(
-                    (initActivityType) =>
-                        initActivityType.value === activityType
-                )?.price ||
+                CALC_VALUES.activityTypes.find((initActivityType) => initActivityType.value === activityType)?.price ||
                 CALC_VALUES.activityTypes
                     .find((initActivityType) =>
-                        initActivityType.options?.some(
-                            (initSubactivityType) =>
-                                initSubactivityType.value === activityType
-                        )
+                        initActivityType.options?.some((initSubactivityType) => initSubactivityType.value === activityType)
                     )
-                    ?.options?.find(
-                        (initActivityType) =>
-                            initActivityType.value === activityType
-                    )?.price ||
+                    ?.options?.find((initActivityType) => initActivityType.value === activityType)?.price ||
                 0
         )
         .reduce((sum, activityType) => sum + activityType, 0);
@@ -73,24 +61,14 @@ const Calculator = () => {
 
     const [taxations, setTaxations] = useState<string[]>([]);
     const taxationsPrice = taxations
-        .map(
-            (taxation) =>
-                CALC_VALUES.taxations.find(
-                    (initTaxation) => initTaxation.value === taxation
-                )?.price || 0
-        )
+        .map((taxation) => CALC_VALUES.taxations.find((initTaxation) => initTaxation.value === taxation)?.price || 0)
         .reduce((sum, taxation) => sum + taxation, 0);
-    const isTaxationDiscount = taxations.some((taxation) =>
-        Object.values(DISCOUNT_VALUES).includes(taxation)
-    );
+    const isTaxationDiscount = taxations.some((taxation) => Object.values(DISCOUNT_VALUES).includes(taxation));
 
     const [staffValue, setStaffValue] = useState(defaultStaffMark);
     const [staffPrice, setStaffPrice] = useState(
-        CALC_VALUES.staffs.find(
-            (staff) =>
-                staff.title ===
-                (staffMarks[defaultStaffMark] as { [key: string]: any })?.label
-        )?.price || 0
+        CALC_VALUES.staffs.find((staff) => staff.title === (staffMarks[defaultStaffMark] as { [key: string]: any })?.label)
+            ?.price || 0
     );
 
     const handleChangeMode = (newOption: SegmentedValue) => {
@@ -99,15 +77,10 @@ const Calculator = () => {
 
     const handleChangeTaxation = (newTaxation: CheckboxChangeEvent) => {
         if (newTaxation.target.checked) {
-            setTaxations((prevTaxations) => [
-                ...prevTaxations,
-                newTaxation.target.value,
-            ]);
+            setTaxations((prevTaxations) => [...prevTaxations, newTaxation.target.value]);
         } else {
             setTaxations((prevTaxations) =>
-                prevTaxations.filter(
-                    (prevTaxation) => prevTaxation !== newTaxation.target.value
-                )
+                prevTaxations.filter((prevTaxation) => prevTaxation !== newTaxation.target.value)
             );
         }
     };
@@ -117,25 +90,15 @@ const Calculator = () => {
             setActivityTypes((prevActivityTypes) => {
                 let computedValue = [...prevActivityTypes];
                 const newVal = newActivityType.target.value;
-                if (
-                    computedValue.some((prevValue) =>
-                        prevValue.startsWith(newVal.split("_")[0])
-                    )
-                ) {
-                    computedValue = computedValue.filter(
-                        (prevValue) =>
-                            !prevValue.startsWith(newVal.split("_")[0])
-                    );
+                if (computedValue.some((prevValue) => prevValue.startsWith(newVal.split("_")[0]))) {
+                    computedValue = computedValue.filter((prevValue) => !prevValue.startsWith(newVal.split("_")[0]));
                 }
                 computedValue.push(newVal);
                 return computedValue;
             });
         } else {
             setActivityTypes((prevActivityTypes) =>
-                prevActivityTypes.filter(
-                    (prevActivityType) =>
-                        prevActivityType !== newActivityType.target.value
-                )
+                prevActivityTypes.filter((prevActivityType) => prevActivityType !== newActivityType.target.value)
             );
         }
     };
@@ -148,16 +111,12 @@ const Calculator = () => {
     const handleChangeStaff = (newStaff: number) => {
         setStaffValue(newStaff);
         setStaffPrice(
-            CALC_VALUES.staffs.find(
-                (staff) =>
-                    staff.title ===
-                    (staffMarks[newStaff] as { [key: string]: any })?.label
-            )?.price || 0
+            CALC_VALUES.staffs.find((staff) => staff.title === (staffMarks[newStaff] as { [key: string]: any })?.label)
+                ?.price || 0
         );
     };
 
-    const totalPrice =
-        modePrice + activityTypePrice + taxationsPrice + staffPrice;
+    const totalPrice = modePrice + activityTypePrice + taxationsPrice + staffPrice;
 
     const isDiscount = isActivityTypeDiscount || isTaxationDiscount;
 
@@ -179,54 +138,32 @@ const Calculator = () => {
                                 },
                             }}
                         >
-                            <Segmented
-                                options={modeOptions}
-                                value={modeOption}
-                                onChange={handleChangeMode}
-                            />
+                            <Segmented options={modeOptions} value={modeOption} onChange={handleChangeMode} />
                         </ConfigProvider>
                     </InputContainer>
-                    <InputContainer
-                        title="Вид деятельности"
-                        gridArea="activityTypes"
-                    >
+                    <InputContainer title="Вид деятельности" gridArea="activityTypes">
                         <div className={styles.checkboxGroup}>
                             {CALC_VALUES.activityTypes.map((activityType) =>
                                 activityType.options ? (
-                                    <div
-                                        key={activityType.title}
-                                        className={styles.subgroup}
-                                    >
-                                        <h5 className={styles.title}>
-                                            {activityType.title}
-                                        </h5>
-                                        {activityType.options.map(
-                                            (subactivityType) => (
-                                                <Checkbox
-                                                    checked={isChecked(
-                                                        subactivityType.value,
-                                                        false
-                                                    )}
-                                                    value={
-                                                        subactivityType.value
-                                                    }
-                                                    key={subactivityType.title}
-                                                    onChange={
-                                                        handleChangeActivityType
-                                                    }
-                                                    style={{ margin: 0 }}
-                                                >
-                                                    {subactivityType.title}
-                                                </Checkbox>
-                                            )
-                                        )}
+                                    <div key={activityType.title} className={styles.subgroup}>
+                                        <h5 className={styles.title}>{activityType.title}</h5>
+                                        {activityType.options.map((subactivityType) => (
+                                            <Checkbox
+                                                className={styles.checkbox}
+                                                checked={isChecked(subactivityType.value, false)}
+                                                value={subactivityType.value}
+                                                key={subactivityType.title}
+                                                onChange={handleChangeActivityType}
+                                                style={{ margin: 0 }}
+                                            >
+                                                {subactivityType.title}
+                                            </Checkbox>
+                                        ))}
                                     </div>
                                 ) : (
                                     <Checkbox
-                                        checked={isChecked(
-                                            activityType.value,
-                                            false
-                                        )}
+                                        className={styles.checkbox}
+                                        checked={isChecked(activityType.value, false)}
                                         value={activityType.value}
                                         key={activityType.title}
                                         onChange={handleChangeActivityType}
@@ -238,10 +175,7 @@ const Calculator = () => {
                             )}
                         </div>
                     </InputContainer>
-                    <InputContainer
-                        title="Налогооблажение"
-                        gridArea="taxations"
-                    >
+                    <InputContainer title="Налогооблажение" gridArea="taxations">
                         <div className={styles.checkboxGroup}>
                             {CALC_VALUES.taxations.map((taxation) => (
                                 <Checkbox
@@ -273,11 +207,7 @@ const Calculator = () => {
                     <h4 className={styles.title}>Итого:</h4>
                     <span className={styles.price}>
                         <AnimatedNumber
-                            value={
-                                isDiscount
-                                    ? Math.ceil(totalPrice * (1 - DISCOUNT))
-                                    : totalPrice
-                            }
+                            value={isDiscount ? Math.ceil(totalPrice * (1 - DISCOUNT)) : totalPrice}
                             hasComma
                             size={48}
                             duration={300}
@@ -285,13 +215,7 @@ const Calculator = () => {
                     </span>
                 </div>
                 <div className={styles.imageContainer}>
-                    <Image
-                        src="/topographic2.png"
-                        alt="Calculator"
-                        fill
-                        priority
-                        className={styles.topographic}
-                    />
+                    <Image src="/topographic2.png" alt="Calculator" fill priority className={styles.topographic} />
                 </div>
             </div>
         </ConfigProvider>

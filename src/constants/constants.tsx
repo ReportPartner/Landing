@@ -3,7 +3,10 @@ export const PAGE_PARTS: { [key: string]: any } = {
     prices: { id: "prices", title: "Тарифы" },
     services: { id: "services", title: "Услуги" },
     about: { id: "about", title: "О нас" },
+    contact: { id: "contact", title: "Оставить заявку" },
 };
+
+export const CONTACT_NUMBER = "+7 (747) 123-45-67";
 
 export const DISCOUNT_VALUES = {
     VAT: "VAT",
@@ -1490,5 +1493,33 @@ export const ALL_PACKAGES: ServicesPackType = [
                 ],
             },
         ],
+    },
+];
+
+export type TeamMemberInfoType = {
+    fullname: string;
+    image: string;
+    position: string;
+    text: string;
+};
+
+export const TEAM_MEMBERS: TeamMemberInfoType[] = [
+    {
+        fullname: "Name Surname",
+        image: "/portrait1.png",
+        position: "Manager",
+        text: "Значимость этих проблем настолько очевидна, что постоянное информационно-пропогандистское обеспечение нашей деятельности создаёт предпосылки качественно новых шагов для системы обучения кадров, соответствующей насущным потребностям.",
+    },
+    {
+        fullname: "Name Surname",
+        image: "/portrait1.png",
+        position: "Manager",
+        text: "Значимость этих проблем настолько очевидна, что постоянное информационно-пропогандистское обеспечение нашей деятельности создаёт предпосылки качественно новых шагов для системы обучения кадров, соответствующей насущным потребностям.",
+    },
+    {
+        fullname: "Name Surname",
+        image: "/portrait1.png",
+        position: "Manager",
+        text: "Значимость этих проблем настолько очевидна, что постоянное информационно-пропогандистское обеспечение нашей деятельности создаёт предпосылки качественно новых шагов для системы обучения кадров, соответствующей насущным потребностям.",
     },
 ];

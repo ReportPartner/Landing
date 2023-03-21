@@ -7,36 +7,62 @@
     justify-content: flex-start;
     align-items: center;
     gap: 16px;
+    .aboutContainer {
+        width: 100%;
+        .contentContainer {
+            width: 100%;
+            position: relative;
+            margin-bottom: 160px;
+            .descriptionContainer {
+                width: max-content;
+                max-width: 75%;
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translate(-50%, 50%);
+                background-color: white;
+                border-radius: 16px;
+                box-shadow: $flotingBoxShadow;
+                padding: 16px;
+                .description {
+                    font-size: 16px;
+                    font-family: $font-text;
+                    line-height: 32px;
+                    margin: 0;
+                }
+            }
+        }
+    }
     .container {
         width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
         align-items: center;
-        gap: 8px;
+        gap: 16px;
     }
     .imageContainer {
         position: relative;
         &.teamImageContainer {
-            aspect-ratio: 5 / 2;
             width: 100%;
-            background: linear-gradient(to right, white, red);
+            height: 400px;
             .teamImage {
                 object-fit: cover;
             }
         }
     }
-    .description {
-        font-size: 16px;
-        font-family: $font-text;
-        line-height: 24px;
-        max-width: 800px;
-        margin: 0 auto;
-    }
     .subtitle {
         font-size: 24px;
         font-family: $font-title;
         font-weight: 600;
+    }
+    .teamCertContainer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 32px;
     }
     .teamContainer {
         display: flex;
@@ -71,14 +97,16 @@
     max-width: 800px;
     display: grid;
     gap: 24px;
+    border-radius: 24px;
+    overflow: hidden;
     .profileDesc {
         display: grid;
-        gap: 48px;
         .content {
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
             gap: 12px;
+            padding: 16px 20px;
             font-family: $font-text;
             .fullname {
                 font-size: 20px;
@@ -107,16 +135,52 @@
     }
     .imageContainer {
         position: relative;
-        aspect-ratio: 1 / 1;
         width: 100%;
+        height: 100%;
         .image {
             object-fit: cover;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    }
+}
+
+@media screen and (max-width: $desktop-size) {
+    .main {
+        .aboutContainer {
+            .contentContainer {
+                .descriptionContainer {
+                    .description {
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $laptop-size) {
+    .main {
+        .aboutContainer {
+            .contentContainer {
+                margin-bottom: unset;
+                .descriptionContainer {
+                    position: unset;
+                    transform: unset;
+                    width: 100%;
+                    max-width: unset;
+                    border-radius: unset;
+                }
+            }
         }
     }
 }
 
 @media screen and (max-width: $mobile-size) {
     .teamMemberCard {
+        box-shadow: unset;
+        border-radius: unset;
+        overflow: unset;
         .profileDesc {
             .content {
                 .text {
@@ -124,9 +188,10 @@
                 }
             }
         }
-        $imageSize: 130px;
+        $imageSize: 250px;
         &.right .profileDesc {
-            grid-template-columns: $imageSize 1fr;
+            grid-template-columns: 1fr;
+            grid-template-rows: $imageSize 1fr;
             .content {
                 text-align: unset;
             }
@@ -138,7 +203,8 @@
             }
         }
         &:not(.right) .profileDesc {
-            grid-template-columns: $imageSize 1fr;
+            grid-template-columns: 1fr;
+            grid-template-rows: $imageSize 1fr;
         }
         .imageContainer {
             width: unset;

@@ -5,12 +5,13 @@ import Container from "@/components/Container";
 import Image from "next/image";
 import ArticlePart from "@/components/ArticlePart";
 import Calculator from "@/components/Calculator";
-import { PAGE_PARTS } from "@/constants/constants";
+import { PACKAGES_HEADING, PAGE_PARTS, ALL_PACKAGES } from "@/constants/constants";
 import About from "@/components/About";
 import Footer from "@/components/Footer";
 import dynamic from "next/dynamic";
 import EmailForm from "@/components/EmailForm";
 import { Button, ConfigProvider } from "antd";
+import Link from "next/link";
 
 const ServicesTable = dynamic(() => import("@/components/PackagesTable"), {
     ssr: false,
@@ -21,6 +22,9 @@ const Services = dynamic(() => import("@/components/Services"), {
 });
 
 export default function Home() {
+    const packagesHeadings = Object.keys(PACKAGES_HEADING).map(
+        (packageType) => ALL_PACKAGES.find((packageItem) => packageItem.packageId === packageType)?.title
+    );
     return (
         <>
             <Head>
@@ -31,6 +35,10 @@ export default function Home() {
                 <link rel="preconnect" href="https://fonts.googleapis.com" />
                 <link rel="preconnect" href="https://fonts.gstatic.com" />
                 <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+                    rel="stylesheet"
+                />
                 <link
                     href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
                     rel="stylesheet"
@@ -83,7 +91,9 @@ export default function Home() {
                                         },
                                     }}
                                 >
-                                    <Button type="primary" ghost>Узнать больше</Button>
+                                    <Button type="primary" ghost>
+                                        <a href={`#${PAGE_PARTS.calculator.id}`}>Узнать больше</a>
+                                    </Button>
                                 </ConfigProvider>
                             </div>
                         </Container>
@@ -94,21 +104,30 @@ export default function Home() {
                         <ArticlePart title={PAGE_PARTS.calculator.title} id={PAGE_PARTS.calculator.id}>
                             <Calculator />
                         </ArticlePart>
-                        <ArticlePart title={PAGE_PARTS.prices.title} id={PAGE_PARTS.prices.id}>
+                        <ArticlePart
+                            title={PAGE_PARTS.prices.title}
+                            subtitle={packagesHeadings.join(", ")}
+                            id={PAGE_PARTS.prices.id}
+                        >
                             <ServicesTable />
                         </ArticlePart>
-                        <ArticlePart title={PAGE_PARTS.services.title} id={PAGE_PARTS.services.id}>
-                            <Services />
-                        </ArticlePart>
-                        <ArticlePart title={PAGE_PARTS.about.title} id={PAGE_PARTS.about.id}>
-                            <About />
-                        </ArticlePart>
+                        <ArticlePart title={PAGE_PARTS.services.title} id={PAGE_PARTS.services.id} />
+                    </article>
+                </Container>
+                <Services />
+                <Container>
+                    <article className={styles.article}>
+                        <ArticlePart title={PAGE_PARTS.about.title} id={PAGE_PARTS.about.id}></ArticlePart>
+                    </article>
+                </Container>
+                <About />
+                <Container>
+                    <article className={styles.article}>
                         <ArticlePart id={PAGE_PARTS.contact.id}>
                             <EmailForm />
                         </ArticlePart>
                     </article>
-                </Container>
-                <Container>
+                    <Container></Container>
                     <footer className={styles.footer}>
                         <Footer />
                     </footer>

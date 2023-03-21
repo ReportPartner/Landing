@@ -1,8 +1,8 @@
 import { ALL_PACKAGES, PACKAGES_HEADING, ServiceType } from "@/constants/constants";
-import { Tooltip } from "antd";
+import { Divider, Tooltip } from "antd";
 import { useState } from "react";
 import styles from "./Packages.module.scss";
-import { FaChevronDown, FaCheck, FaInfoCircle, FaStarOfLife, FaLevelDownAlt } from 'react-icons/fa';
+import { FaChevronDown, FaCheck, FaInfoCircle, FaStarOfLife, FaLevelDownAlt } from "react-icons/fa";
 
 const countServicesTotal = (packageItem: ServiceType) => {
     if (!packageItem.subservices) return 1;
@@ -198,12 +198,13 @@ const PackagesTable = () => {
         <div className={styles.main}>
             {ALL_PACKAGES.map((packageRoot) => (
                 <div className={styles.packageRoot} key={packageRoot.packageId}>
-                    <h3 className={styles.title}>{packageRoot.title}</h3>
                     <div className={styles.tableContainer}>
                         <table className={styles.table}>
                             <thead className={styles.heading}>
                                 <tr>
-                                    <th />
+                                    <th>
+                                        <h3 className={styles.mainTitle}>{packageRoot.title}</h3>
+                                    </th>
                                     {PACKAGES_HEADING[packageRoot.packageId].map((packageItem, index) => (
                                         <th key={index}>
                                             <div className={`${styles.packageTitle} ${styles[packageItem.id]}`}>

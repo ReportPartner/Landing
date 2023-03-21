@@ -1,5 +1,3 @@
-import { CSSProperties } from "react";
-
 const Container = ({ ...props }: React.HTMLProps<HTMLDivElement>) => {
     return (
         <div {...props} className="container">

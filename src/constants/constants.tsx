@@ -2,6 +2,7 @@ export const PAGE_PARTS: { [key: string]: any } = {
     calculator: { id: "calculator", title: "Калькулятор цен" },
     prices: { id: "prices", title: "Тарифы" },
     services: { id: "services", title: "Услуги" },
+    express: { id: "express", title: "Экспресс проверка" },
     about: { id: "about", title: "О нас" },
     contact: { id: "contact", title: "Оставить заявку" },
 };

@@ -1,0 +1,28 @@
+@import "./constants.scss";
+
+.main {
+    display: flex;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 32px;
+    background: linear-gradient(to top, rgba($green-200, 0.3), white);
+    .imageContainer {
+        position: relative;
+        width: 150px;
+        height: 150px;
+        .image {
+            object-fit: contain;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+    }
+    h3 {
+        font-size: 32px;
+        font-family: $font-title;
+    }
+    .link {
+        color: white;
+    }
+}

@@ -12,20 +12,6 @@
     position: relative;
     overflow: hidden;
 
-    &::after {
-        content: "";
-        position: absolute;
-        top: 0;
-        $size: 250px;
-        right: -($size / 2);
-        width: $size;
-        height: $size;
-        border-radius: $size;
-        background-color: $green-400;
-        transform: translateY(-50%);
-        filter: blur($size / 1.5);
-    }
-
     .divider {
         height: 100%;
         border-left: 1px solid rgba($green-400, 0.3);
@@ -107,6 +93,7 @@
         justify-content: center;
         align-items: flex-start;
         gap: 8px;
+        margin-bottom: 24px;
 
         .title {
             font-family: $font-title;
@@ -175,12 +162,6 @@
     .main {
         grid-template-columns: 1fr;
         grid-template-rows: auto auto auto;
-
-        &::after {
-            top: unset;
-            bottom: 0;
-            transform: translateY(50%);
-        }
         .divider {
             width: 100%;
             height: unset;
@@ -189,7 +170,7 @@
         }
 
         .imageContainer {
-            display: none;
+            width: 150px;
         }
         .topographic {
             object-position: bottom left;

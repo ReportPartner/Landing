@@ -2,17 +2,17 @@ import { PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
 import styles from "./Footer.module.scss";
-import { FaInstagram, FaFacebookF } from 'react-icons/fa';
+import { FaInstagram, FaFacebookF } from "react-icons/fa";
 
 const Footer = () => {
     const socials = [
         {
             Icon: FaInstagram,
-            link: "www.google.com",
+            link: "https://www.google.com",
         },
         {
             Icon: FaFacebookF,
-            link: "www.google.com",
+            link: "https://www.google.com",
         },
     ];
 
@@ -26,33 +26,55 @@ const Footer = () => {
                 </div>
             </div>
             <div className={styles.main}>
-                <div className={styles.companyContainer}>
-                    <h3 className={styles.title}>Report Partner</h3>
-                    <h5 className={styles.subtitle}>Lorem ipsum dolor sit amet.</h5>
-                </div>
-                <Nav className={`ms-auto me-auto gap-48 gap-sm-0 ${styles.linkContainer}`}>
-                    {Object.keys(PAGE_PARTS).map((pagePart) => (
-                        <Nav.Link className={styles.link} href={`#${PAGE_PARTS[pagePart].id}`} key={PAGE_PARTS[pagePart].id}>
-                            {PAGE_PARTS[pagePart].title}
-                        </Nav.Link>
-                    ))}
-                </Nav>
-                <div className={styles.infosContainer}>
-                    <div className={styles.socials}>
-                        {socials.map((social) => (
-                            <a href={social.link} target="_blank" key={social.link}>
-                                <social.Icon />
-                            </a>
-                        ))}
+                <div className={styles.leftPart}>
+                    <div className={styles.companyContainer}>
+                        <h3 className={styles.title}>Report Partner</h3>
+                        <h5 className={styles.subtitle}>Lorem ipsum dolor sit amet.</h5>
                     </div>
-                    <div className={styles.contactInfos}>
-                        {contacts.map((contact) => (
-                            <h6 key={contact}>{contact}</h6>
+                    <div className={`${styles.infosContainer} ${styles.mobile}`}>
+                        <div className={styles.socials}>
+                            {socials.map((social) => (
+                                <a href={social.link} target="_blank" key={social.link}>
+                                    <social.Icon />
+                                </a>
+                            ))}
+                        </div>
+                        <div className={styles.contactInfos}>
+                            {contacts.map((contact) => (
+                                <h6 key={contact}>{contact}</h6>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+                <div className={styles.rightPart}>
+                    <Nav className={styles.linkContainer}>
+                        {Object.keys(PAGE_PARTS).map((pagePart) => (
+                            <Nav.Link
+                                className={styles.link}
+                                href={`#${PAGE_PARTS[pagePart].id}`}
+                                key={PAGE_PARTS[pagePart].id}
+                            >
+                                {PAGE_PARTS[pagePart].title}
+                            </Nav.Link>
                         ))}
+                    </Nav>
+                    <div className={styles.infosContainer}>
+                        <div className={styles.socials}>
+                            {socials.map((social) => (
+                                <a href={social.link} target="_blank" key={social.link}>
+                                    <social.Icon />
+                                </a>
+                            ))}
+                        </div>
+                        <div className={styles.contactInfos}>
+                            {contacts.map((contact) => (
+                                <h6 key={contact}>{contact}</h6>
+                            ))}
+                        </div>
                     </div>
                 </div>
             </div>
-            <h5 className={styles.copyright}>copyright 2023</h5>
+            <h5 className={styles.copyright}>Copyright 2023</h5>
         </div>
     );
 };

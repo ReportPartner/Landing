@@ -9,14 +9,17 @@
     gap: 24px;
     .packageRoot {
         width: 100%;
-
-        .title {
+        .mainTitle, .title {
             text-align: center;
             font-family: $font-title;
-            font-size: 36px;
+            font-size: 24px;
             font-weight: 500;
         }
-
+        .mainTitle {
+            text-align: left;
+            margin-left: 12px;
+            color:rgba(210, 210, 210);
+        }
         .tableContainer {
             max-width: calc(100vw - 40px);
             overflow-x: auto;

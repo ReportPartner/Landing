@@ -80,6 +80,10 @@ h6 {
 }
 /*--------------------*/
 
+* {
+    font-family: $font-text;
+}
+
 .ant-float-btn .ant-float-btn-body .ant-float-btn-content {
     padding: 0;
 }

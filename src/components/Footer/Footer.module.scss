@@ -24,21 +24,22 @@
             position: relative;
             .logo {
                 object-fit: contain;
-
+                -webkit-user-drag: none;
             }
         }
     }
 
     .main {
         width: 100%;
-        display: flex;
-        flex-wrap: nowrap;
-        justify-content: space-between;
-        align-items: flex-start;
+        display: grid;
+        grid-template-areas: 
+            "company links contacts"
+            "company links contacts";
         gap: 24px;
         width: 100%;
 
         .companyContainer {
+            grid-area: company;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -55,6 +56,7 @@
             }
         }
         .linkContainer {
+            grid-area: links;
             max-width: 700px;
             display: flex;
             justify-content: center;
@@ -62,16 +64,15 @@
             gap: 12px;
             a {
                 color: black;
+                transition: color .2s;
+                &:hover {
+                    color: $green-400;
+                }
                 padding: 16px;
             }
         }
-        .rightPart {
-            width: 100%;
-            display: flex;
-            justify-content: space-between;
-            gap: 12px;
-        }
         .infosContainer {
+            grid-area: contacts;
             display: flex;
             flex-direction: column;
             justify-content: flex-start;
@@ -96,7 +97,7 @@
                     height: $size;
                     border-radius: $size;
                     background-color: white;
-                    box-shadow: $flotingBoxShadow;
+                    box-shadow: 0 2px 12px rgba($green-400, 0.2);
                     transition: color .2s;
                     &:hover {
                         color: $green-400;
@@ -124,7 +125,9 @@
 @media screen and (max-width: $tablet-size) {
     .container {
         .main {
-            flex-direction: column;
+            grid-template-areas: 
+                "company contacts"
+                "links links";
             gap: 48px;
             .companyContainer{
                 width: 100%;
@@ -133,20 +136,6 @@
                 gap: 24px;
                 a {
                     padding: 0;
-                }
-            }
-            .rightPart {
-                flex-direction: column;
-            }
-            .leftPart {
-                display: flex;
-                width: 100%;
-                justify-content: space-between;
-            }
-            .infosContainer {
-                display: none;
-                &.mobile {
-                    display: flex;
                 }
             }
         }

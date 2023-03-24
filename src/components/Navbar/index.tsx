@@ -1,8 +1,8 @@
 import { CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
-import { Container, Nav, Navbar as BsNavbar, NavDropdown } from "react-bootstrap";
-import styles from "./Navbar.module.scss";
+import { Container, Nav, Navbar as BsNavbar } from "react-bootstrap";
 import { FaPhone } from "react-icons/fa";
+import styles from "./Navbar.module.scss";
 
 const Navbar = () => {
     return (

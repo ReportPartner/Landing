@@ -1,17 +1,16 @@
-import Head from "next/head";
-import styles from "@/styles/Home.module.scss";
-import Navbar from "@/components/Navbar";
-import Container from "@/components/Container";
-import Image from "next/image";
+import About from "@/components/About";
 import ArticlePart from "@/components/ArticlePart";
 import Calculator from "@/components/Calculator";
-import { PACKAGES_HEADING, PAGE_PARTS, ALL_PACKAGES } from "@/constants/constants";
-import About from "@/components/About";
-import Footer from "@/components/Footer";
-import dynamic from "next/dynamic";
+import Container from "@/components/Container";
 import EmailForm from "@/components/EmailForm";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
+import { ALL_PACKAGES, PACKAGES_HEADING, PAGE_PARTS } from "@/constants/constants";
+import styles from "@/styles/Home.module.scss";
 import { Button, ConfigProvider } from "antd";
-import Link from "next/link";
+import dynamic from "next/dynamic";
+import Head from "next/head";
+import Image from "next/image";
 
 const ServicesTable = dynamic(() => import("@/components/PackagesTable"), {
     ssr: false,
@@ -29,29 +28,13 @@ export default function Home() {
         <>
             <Head>
                 <title>Report Partner</title>
-                <meta name="description" content="" />
+                <meta name="description" content="Бухгалтерские, кадровые и юридические услуги" />
+                <meta
+                    name="keywords"
+                    content="бухгалтерия, бухгалтерские услуги, налоговая отчетность, налоговый учет, бухгалтерский учет, аутсорсинг бухгалтерии, финансовое консультирование, кадровый учет, зарплата и управление персоналом"
+                />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/RP_logo.png" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-                <link rel="preconnect" href="https://fonts.gstatic.com" />
-                <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet" />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-                    rel="stylesheet"
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-                    rel="stylesheet"
-                />
-                <link
-                    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
-                    rel="stylesheet"
-                />
-                <link
-                    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-                    rel="stylesheet"
-                    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-                />
             </Head>
             <Navbar />
             <main className={styles.main}>
@@ -78,12 +61,8 @@ export default function Home() {
                         <Container>
                             <div className={styles.wrapper}>
                                 <h3>Report Partner</h3>
-                                <h1>Для современного мира начало повседневной работы.</h1>
-                                <h5>
-                                    Не вызывает сомнений, что постоянное информационно-пропогандистское обеспечение нашей
-                                    деятельности требует от нас анализа модели развития. Прежде всего сложившаяся структура
-                                    организации.
-                                </h5>
+                                <h1>Сфокусируйся на бизнесе, а мы позаботимся обо всем остальном.</h1>
+                                <h5>Бухгалтерские, кадровые и юридические услуги.</h5>
                                 <ConfigProvider
                                     theme={{
                                         token: {
@@ -92,7 +71,7 @@ export default function Home() {
                                     }}
                                 >
                                     <Button type="primary" ghost>
-                                        <a href={`#${PAGE_PARTS.calculator.id}`}>Узнать больше</a>
+                                        <a className={styles.moreBtn} href={`#${PAGE_PARTS.calculator.id}`}>Узнать больше</a>
                                     </Button>
                                 </ConfigProvider>
                             </div>
@@ -127,7 +106,6 @@ export default function Home() {
                             <EmailForm />
                         </ArticlePart>
                     </article>
-                    <Container></Container>
                     <footer className={styles.footer}>
                         <Footer />
                     </footer>

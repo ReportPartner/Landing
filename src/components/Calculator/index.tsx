@@ -1,13 +1,13 @@
 import { CALC_VALUES, DISCOUNT, DISCOUNT_VALUES } from "@/constants/constants";
-import { Checkbox, Segmented, Slider, ConfigProvider } from "antd";
+import { Checkbox, ConfigProvider, Segmented, Slider } from "antd";
 import { CheckboxChangeEvent } from "antd/es/checkbox";
 import { SegmentedValue } from "antd/es/segmented";
 import { SliderMarks } from "antd/es/slider";
+import Image from "next/image";
 import { useState } from "react";
 import AnimatedNumber from "react-awesome-animated-number";
-import styles from "./Calculator.module.scss";
 import "react-awesome-animated-number/dist/index.css";
-import Image from "next/image";
+import styles from "./Calculator.module.scss";
 
 type InputContainerType = {
     title: string;

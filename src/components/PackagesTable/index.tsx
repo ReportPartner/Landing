@@ -1,8 +1,8 @@
 import { ALL_PACKAGES, PACKAGES_HEADING, ServiceType } from "@/constants/constants";
-import { Divider, Tooltip } from "antd";
+import { Tooltip } from "antd";
 import { useState } from "react";
+import { FaCheck, FaChevronDown, FaInfoCircle, FaLevelDownAlt, FaStarOfLife } from "react-icons/fa";
 import styles from "./Packages.module.scss";
-import { FaChevronDown, FaCheck, FaInfoCircle, FaStarOfLife, FaLevelDownAlt } from "react-icons/fa";
 
 const countServicesTotal = (packageItem: ServiceType) => {
     if (!packageItem.subservices) return 1;

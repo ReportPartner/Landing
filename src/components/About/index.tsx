@@ -1,11 +1,11 @@
-import Image from "next/image";
-import styles from "./About.module.scss";
-import TeamMemberCard from "./TeamMemberCard";
 import { TEAM_MEMBERS } from "@/constants/constants";
 import { Divider } from "antd";
+import Image from "next/image";
 import { Carousel } from "react-bootstrap";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import Container from "../Container";
+import styles from "./About.module.scss";
+import TeamMemberCard from "./TeamMemberCard";
 
 const CertificateImage = ({ imgSrc }: { imgSrc: string }) => {
     return (

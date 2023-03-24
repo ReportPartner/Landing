@@ -32,6 +32,7 @@
     .phoneNumber {
         color: $green-400;
         transition: color .2s;
+        width: max-content;
         &.mobile {
             display: none;
         }

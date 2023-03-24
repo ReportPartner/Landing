@@ -1,6 +1,6 @@
 import { PAGE_PARTS } from "@/constants/constants";
 import emailjs from "@emailjs/browser";
-import { Button, ConfigProvider, Form, Input, message, notification, Space } from "antd";
+import { Button, ConfigProvider, Form, Input, notification } from "antd";
 import { useRef, useState } from "react";
 import styles from "./EmailForm.module.scss";
 
@@ -77,7 +77,7 @@ const EmailForm = () => {
 
     return (
         <div className={styles.main}>
-            <h2 className={styles.title}>{PAGE_PARTS.contact.title}</h2>
+            <h2 className={styles.title}>{PAGE_PARTS.contact.titleExt}</h2>
             <form onSubmit={handleClickSendEmail} ref={form} className={styles.form}>
                 <ConfigProvider
                     theme={{

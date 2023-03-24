@@ -4,7 +4,7 @@ export const PAGE_PARTS: { [key: string]: any } = {
     services: { id: "services", title: "Услуги" },
     express: { id: "express", title: "Экспресс проверка" },
     about: { id: "about", title: "О нас" },
-    contact: { id: "contact", title: "Оставить заявку" },
+    contact: { id: "contact", title: "Оставить заявку", titleExt: "Оставить заявку на консультацию" },
 };
 
 export const CONTACT_NUMBER = "+7 (747) 123-45-67";

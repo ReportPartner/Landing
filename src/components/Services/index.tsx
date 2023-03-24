@@ -1,8 +1,9 @@
 import { PAGE_PARTS } from "@/constants/constants";
-import { ConfigProvider, Divider, FloatButton, List, Steps } from "antd";
-import styles from "./Services.module.scss";
-import { FaWhatsapp, FaCommentDots, FaPhone } from "react-icons/fa";
+import { ConfigProvider, Divider, FloatButton, Steps } from "antd";
+import Image from "next/image";
+import { FaCommentDots, FaPhone, FaWhatsapp } from "react-icons/fa";
 import Container from "../Container";
+import styles from "./Services.module.scss";
 
 const Services = () => {
     const expressCheckUpPrice = 30000;
@@ -26,6 +27,9 @@ const Services = () => {
 
     return (
         <div className={styles.wrapper}>
+            <div className={styles.imageContainer}>
+                            <Image src={"/RP_logo.png"} alt={"Логотип RP"} fill priority className={styles.image} />
+                        </div>
             <Container>
                 <div className={styles.main} id={PAGE_PARTS.express.id}>
                     <ConfigProvider

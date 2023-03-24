@@ -28,11 +28,18 @@ export default function Home() {
         <>
             <Head>
                 <title>Report Partner</title>
-                <meta name="description" content="Бухгалтерские, кадровые и юридические услуги" />
+                <meta name="description" content="Бухгалтерские, кадровые и юридические услуги." />
                 <meta
                     name="keywords"
                     content="бухгалтерия, бухгалтерские услуги, налоговая отчетность, налоговый учет, бухгалтерский учет, аутсорсинг бухгалтерии, финансовое консультирование, кадровый учет, зарплата и управление персоналом"
                 />
+                <meta property="og:title" content="Report Partner" />
+                <meta property="og:description" content="Бухгалтерские, кадровые и юридические услуги." />
+                <meta property="og:image" content="/RP_logo_abbr.png" />
+                <meta property="og:type" content="website" />
+                <meta name="twitter:title" content="Report Partner" />
+                <meta name="twitter:description" content="Бухгалтерские, кадровые и юридические услуги." />
+                <meta name="twitter:image" content="RP_logo_abbr.png" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/RP_logo.png" />
             </Head>
@@ -71,7 +78,9 @@ export default function Home() {
                                     }}
                                 >
                                     <Button type="primary" ghost>
-                                        <a className={styles.moreBtn} href={`#${PAGE_PARTS.calculator.id}`}>Узнать больше</a>
+                                        <a className={styles.moreBtn} href={`#${PAGE_PARTS.calculator.id}`}>
+                                            Узнать больше
+                                        </a>
                                     </Button>
                                 </ConfigProvider>
                             </div>

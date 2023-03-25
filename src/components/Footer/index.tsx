@@ -1,22 +1,15 @@
-import { PAGE_PARTS } from "@/constants/constants";
+import { COMPANY_NAME, COMPANY_SUBTITLE, CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import styles from "./Footer.module.scss";
 
 const Footer = () => {
-    const socials = [
-        {
-            Icon: FaInstagram,
-            link: "https://www.instagram.com/reportpartner/",
-        },
-        {
-            Icon: FaFacebookF,
-            link: "https://www.google.com",
-        },
+    const contacts = [
+        "info@reportpartner.kz",
+        CONTACT_NUMBER,
+        'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201',
     ];
-
-    const contacts = ["some_email@gmail.com", "+7 (747) 123-45-67", "г. Алматы"];
 
     const getYearRangeFrom = (startYear: number) => {
         const currentYear = new Date().getFullYear();
@@ -36,8 +29,8 @@ const Footer = () => {
             </div>
             <div className={styles.main}>
                 <div className={styles.companyContainer}>
-                    <h3 className={styles.title}>Report Partner</h3>
-                    <h5 className={styles.subtitle}>Lorem ipsum dolor sit amet.</h5>
+                    <h3 className={styles.title}>{COMPANY_NAME}</h3>
+                    <h5 className={styles.subtitle}>{COMPANY_SUBTITLE}</h5>
                 </div>
                 <Nav className={styles.linkContainer}>
                     {Object.keys(PAGE_PARTS).map((pagePart) => (
@@ -48,11 +41,10 @@ const Footer = () => {
                 </Nav>
                 <div className={styles.infosContainer}>
                     <div className={styles.socials}>
-                        {socials.map((social) => (
-                            <a href={social.link} target="_blank" key={social.link}>
-                                <social.Icon />
-                            </a>
-                        ))}
+                        <span>Мы в Instagram:</span>
+                        <a href="https://www.instagram.com/reportpartner/" target="_blank">
+                            <FaInstagram />
+                        </a>
                     </div>
                     <div className={styles.contactInfos}>
                         {contacts.map((contact) => (

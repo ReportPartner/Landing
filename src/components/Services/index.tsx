@@ -1,4 +1,4 @@
-import { PAGE_PARTS } from "@/constants/constants";
+import { CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
 import { ConfigProvider, Divider, FloatButton, Steps } from "antd";
 import Image from "next/image";
 import { FaCommentDots, FaPhone, FaWhatsapp } from "react-icons/fa";
@@ -59,7 +59,7 @@ const Services = () => {
                         >
                             <FloatButton
                                 description={
-                                    <a target="_blank" href={`https://wa.me/+77082244123?text=${whatsAppDefaultMessage}`}>
+                                    <a target="_blank" href={`https://wa.me/${CONTACT_NUMBER.replace(/\D/g, "")}?text=${whatsAppDefaultMessage}`}>
                                         <FaWhatsapp fontSize={20} />
                                     </a>
                                 }
@@ -68,7 +68,7 @@ const Services = () => {
                             />
                             <FloatButton
                                 description={
-                                    <a target="_blank" href="tel:123-456-7890">
+                                    <a target="_blank" href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}>
                                         <FaPhone />
                                     </a>
                                 }

@@ -103,7 +103,7 @@
                 }
 
                 h5 {
-                    margin-top: 32px;
+                    margin-top: 16px;
                     margin-bottom: 36px;
                     font-size: 16px;
                     font-family: $font-text;
@@ -142,6 +142,7 @@
         .hero {
             .textContainer {
                 .wrapper {
+                    max-width: 60%;
                     h1 {
                         font-size: 48px;
                         line-height: 48px;
@@ -181,13 +182,12 @@
 @media screen and (max-width: $mobile-size) {
     .main {
         .hero {
+            .symbolsContainer {
+                height: 100px;
+            }
             .textContainer {
                 .wrapper {
                     max-width: 85%;
-
-                    // h1 {
-                    //     font-size: calc(1.5rem + 1.5vw);
-                    // }
                 }
             }
         }

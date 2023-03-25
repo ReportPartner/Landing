@@ -11,24 +11,24 @@
         width: 100%;
         .contentContainer {
             width: 100%;
-            position: relative;
-            margin-bottom: 160px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 24px;
             .descriptionContainer {
-                width: max-content;
-                max-width: 75%;
-                position: absolute;
-                bottom: 0;
-                left: 50%;
-                transform: translate(-50%, 50%);
-                background-color: white;
-                border-radius: 16px;
-                box-shadow: $flotingBoxShadow;
+                max-width: 800px;
+                margin: 0 auto;
                 padding: 16px;
                 .description {
                     font-size: 16px;
                     font-family: $font-text;
                     line-height: 32px;
                     margin: 0;
+                    .icon {
+                        color: $green-400;
+                        margin-right: 4px;
+                    }
                 }
             }
         }
@@ -41,11 +41,17 @@
         align-items: center;
         gap: 16px;
     }
+    .backgroundFiller {
+        width: 100%;
+        background: linear-gradient(to bottom, #e8e8e8, #e5e5e5, #d2d2d4);
+    }
     .imageContainer {
         position: relative;
         &.teamImageContainer {
+            margin: 0 auto;
             width: 100%;
-            height: 400px;
+            max-width: 800px;
+            height: 600px;
             .teamImage {
                 object-fit: cover;
             }
@@ -170,6 +176,7 @@
                     width: 100%;
                     max-width: unset;
                     border-radius: unset;
+                    box-shadow: none;
                 }
             }
         }
@@ -177,6 +184,16 @@
 }
 
 @media screen and (max-width: $mobile-size) {
+    .main {
+        .imageContainer {
+            &.teamImageContainer {
+                height: 300px;
+                .teamImage {
+                    object-position: top center;
+                }
+            }
+        }
+    }
     .teamMemberCard {
         box-shadow: unset;
         border-radius: unset;

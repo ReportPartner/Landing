@@ -1,11 +1,10 @@
-import About from "@/components/About";
 import ArticlePart from "@/components/ArticlePart";
 import Calculator from "@/components/Calculator";
 import Container from "@/components/Container";
 import EmailForm from "@/components/EmailForm";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { ALL_PACKAGES, PACKAGES_HEADING, PAGE_PARTS } from "@/constants/constants";
+import { ALL_PACKAGES, COMPANY_NAME, COMPANY_SUBTITLE, PACKAGES_HEADING, PAGE_PARTS } from "@/constants/constants";
 import styles from "@/styles/Home.module.scss";
 import { Button, ConfigProvider } from "antd";
 import dynamic from "next/dynamic";
@@ -20,6 +19,10 @@ const Services = dynamic(() => import("@/components/Services"), {
     ssr: false,
 });
 
+const About = dynamic(() => import("@/components/About"), {
+    ssr: false,
+});
+
 export default function Home() {
     const packagesHeadings = Object.keys(PACKAGES_HEADING).map(
         (packageType) => ALL_PACKAGES.find((packageItem) => packageItem.packageId === packageType)?.title
@@ -28,17 +31,17 @@ export default function Home() {
         <>
             <Head>
                 <title>Report Partner</title>
-                <meta name="description" content="Бухгалтерские, кадровые и юридические услуги." />
+                <meta name="description" content={COMPANY_SUBTITLE} />
                 <meta
                     name="keywords"
                     content="бухгалтерия, бухгалтерские услуги, налоговая отчетность, налоговый учет, бухгалтерский учет, аутсорсинг бухгалтерии, финансовое консультирование, кадровый учет, зарплата и управление персоналом"
                 />
-                <meta property="og:title" content="Report Partner" />
-                <meta property="og:description" content="Бухгалтерские, кадровые и юридические услуги." />
+                <meta property="og:title" content={COMPANY_NAME} />
+                <meta property="og:description" content={COMPANY_SUBTITLE} />
                 <meta property="og:image" content="/RP_logo_abbr.png" />
                 <meta property="og:type" content="website" />
-                <meta name="twitter:title" content="Report Partner" />
-                <meta name="twitter:description" content="Бухгалтерские, кадровые и юридические услуги." />
+                <meta name="twitter:title" content={COMPANY_NAME} />
+                <meta name="twitter:description" content={COMPANY_SUBTITLE} />
                 <meta name="twitter:image" content="RP_logo_abbr.png" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="icon" href="/RP_logo.png" />
@@ -67,9 +70,9 @@ export default function Home() {
                     <div className={styles.textContainer}>
                         <Container>
                             <div className={styles.wrapper}>
-                                <h3>Report Partner</h3>
+                                <h3>{COMPANY_NAME}</h3>
                                 <h1>Сфокусируйся на бизнесе, а мы позаботимся обо всем остальном.</h1>
-                                <h5>Бухгалтерские, кадровые и юридические услуги.</h5>
+                                <h5>{COMPANY_SUBTITLE}</h5>
                                 <ConfigProvider
                                     theme={{
                                         token: {

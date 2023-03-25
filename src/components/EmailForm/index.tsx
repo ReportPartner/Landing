@@ -2,6 +2,7 @@ import { PAGE_PARTS } from "@/constants/constants";
 import emailjs from "@emailjs/browser";
 import { Button, ConfigProvider, Form, Input, notification } from "antd";
 import { useRef, useState } from "react";
+import { FormLabel } from "react-bootstrap";
 import styles from "./EmailForm.module.scss";
 
 const EmailForm = () => {
@@ -33,10 +34,6 @@ const EmailForm = () => {
         }));
     };
 
-    const labelSpan = 4;
-    const labelCol = { span: labelSpan };
-    const submitBtnLabelCol = { offset: labelSpan };
-
     const handleClickSendEmail = (e: any) => {
         e.preventDefault();
         setShowError(false);
@@ -49,7 +46,7 @@ const EmailForm = () => {
                 setLoading(false);
             }, 2000);
             if (form && form.current) {
-                emailjs.sendForm("service_667eqyp", "template_l8thbrv", form.current, "WWUPVbWBGFwIcMfAM").then(
+                emailjs.sendForm("service_b6q6nsr", "template_fec15ol", form.current, "CxFzI_MUKQBWSamJR").then(
                     () => {
                         setLoading(false);
                         notification.success({
@@ -89,10 +86,9 @@ const EmailForm = () => {
                     <Form.Item
                         validateStatus={showError && !values[inputNames.name.name] ? "error" : undefined}
                         help={showError && !values[inputNames.name.name] ? "Не заполнено" : undefined}
-                        labelCol={labelCol}
-                        label={inputNames.name.label}
                         className={styles.inputItem}
                     >
+                        <FormLabel>{inputNames.name.label}</FormLabel>
                         <Input
                             prefix={<span />}
                             onChange={handleChangeValue}
@@ -104,10 +100,9 @@ const EmailForm = () => {
                     <Form.Item
                         validateStatus={showError && !values[inputNames.phone.name] ? "error" : undefined}
                         help={showError && !values[inputNames.phone.name] ? "Не заполнено" : undefined}
-                        labelCol={labelCol}
-                        label={inputNames.phone.label}
                         className={styles.inputItem}
                     >
+                        <FormLabel>{inputNames.phone.label}</FormLabel>
                         <Input
                             prefix={<span />}
                             onChange={handleChangeValue}
@@ -119,10 +114,9 @@ const EmailForm = () => {
                     <Form.Item
                         validateStatus={showError && !values[inputNames.email.name] ? "error" : undefined}
                         help={showError && !values[inputNames.email.name] ? "Не заполнено" : undefined}
-                        labelCol={labelCol}
-                        label={inputNames.email.label}
                         className={styles.inputItem}
                     >
+                        <FormLabel>{inputNames.email.label}</FormLabel>
                         <Input
                             prefix={<span />}
                             onChange={handleChangeValue}
@@ -131,7 +125,7 @@ const EmailForm = () => {
                             className={styles.input}
                         />
                     </Form.Item>
-                    <Form.Item wrapperCol={submitBtnLabelCol} className={styles.inputItem}>
+                    <Form.Item className={styles.inputItem}>
                         <Button type="primary" htmlType="submit" loading={loading} className={styles.submitBtn}>
                             Отправить
                         </Button>

@@ -7,7 +7,7 @@ export const PAGE_PARTS: { [key: string]: any } = {
     contact: { id: "contact", title: "Оставить заявку", titleExt: "Оставить заявку на консультацию" },
 };
 
-export const CONTACT_NUMBER = "+7 (707) 655-65-55";
+export const CONTACT_NUMBER = "+7 (700) 021-71-73";
 
 export const COMPANY_NAME = "Report Partner";
 export const COMPANY_SUBTITLE = "Бухгалтерские, кадровые и юридические услуги.";

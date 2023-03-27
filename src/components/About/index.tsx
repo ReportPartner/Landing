@@ -17,8 +17,6 @@ const CertificateImage = ({ imgSrc }: { imgSrc: string }) => {
 };
 
 const About = () => {
-    const certificates = ["/cert1.jpg", "/cert2.jpg", "/cert3.jpg"];
-
     const descriptions = [
         "мы специалисты с 20 летним стажем",
         "предоставляем услуги в сфере бухгалтерского, юридического и кадрового обслуживания",
@@ -104,9 +102,9 @@ const About = () => {
                                     </div>
                                 }
                             >
-                                {certificates.map((certificate, index) => (
-                                    <Carousel.Item key={certificate + index}>
-                                        <CertificateImage imgSrc={certificate} />
+                                {[...new Array(9)].map((_, index) => (
+                                    <Carousel.Item key={index}>
+                                        <CertificateImage imgSrc={`/Certificates/${index + 1}.jpg`} />
                                     </Carousel.Item>
                                 ))}
                             </Carousel>

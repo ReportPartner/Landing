@@ -8,6 +8,7 @@ const Footer = () => {
     const contacts = [
         "info@reportpartner.kz",
         CONTACT_NUMBER,
+        "+7 (707) 655-65-55",
         'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201',
     ];
 

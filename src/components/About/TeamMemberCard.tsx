@@ -1,15 +1,13 @@
 import { TeamMemberInfoType } from "@/constants/constants";
 import Image from "next/image";
 import styles from "./About.module.scss";
+import { GoPrimitiveDot } from "react-icons/go"
 
 type TeamMemberCardType = {
     teamMember: TeamMemberInfoType;
-    isRight: boolean;
 };
 
-const TeamMemberCard = ({ teamMember, isRight }: TeamMemberCardType) => {
-    const classes = [styles.teamMemberCard];
-    if (isRight) classes.push(styles.right);
+const TeamMemberCard = ({ teamMember }: TeamMemberCardType) => {
     const ImageContainer = () => {
         return (
             <div className={styles.imageContainer}>
@@ -19,22 +17,27 @@ const TeamMemberCard = ({ teamMember, isRight }: TeamMemberCardType) => {
     };
 
     return (
-        <div className={classes.join(" ")}>
-            <div className={styles.profileDesc}>
-                <div className={styles.leftImage}>
-                    <ImageContainer />
-                </div>
-                <div className={styles.content}>
-                    <h5 className={styles.fullname}>{teamMember.fullname}</h5>
-                    <h5 className={styles.position}>{teamMember.position}</h5>
-                    <h5 className={styles.text}>{teamMember.text}</h5>
-                </div>
-                <div className={styles.rightImage}>
-                    <ImageContainer />
-                </div>
+        <div className={styles.teamMemberCard}>
+            <div className={styles.stickyImgContainer}>
+                <ImageContainer />
             </div>
-            <div className={styles.modileText}>
-                <h5 className={styles.text}>{teamMember.text}</h5>
+            <div className={styles.content}>
+                <h4 className={styles.fullname}>{teamMember.fullname}</h4>
+                <h5 className={styles.position}>{teamMember.position}</h5>
+                {!!teamMember.subposition && <h6 className={styles.subposition}>{teamMember.subposition}</h6>}
+                {!!teamMember.content && (
+                    <div className={styles.content}>
+                        {teamMember.content.map((contentItem, index) =>
+                            typeof contentItem === "string" ? (
+                                <p key={`p_${index}`}>{contentItem}</p>
+                            ) : (
+                                contentItem.map((item, itemIndex) => (
+                                    <p key={`p_${index}_${itemIndex}`}><GoPrimitiveDot className={styles.icon} />{item}</p>
+                                ))
+                            )
+                        )}
+                    </div>
+                )}
             </div>
         </div>
     );

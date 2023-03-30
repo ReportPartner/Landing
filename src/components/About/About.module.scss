@@ -17,7 +17,7 @@
             align-items: center;
             gap: 24px;
             .descriptionContainer {
-                max-width: 800px;
+                max-width: 1000px;
                 margin: 0 auto;
                 padding: 16px;
                 .description {
@@ -58,9 +58,10 @@
         }
     }
     .subtitle {
-        font-size: 24px;
+        font-size: 28px;
         font-family: $font-title;
-        font-weight: 600;
+        font-weight: 700;
+        margin: 14px 0;
     }
     .teamCertContainer {
         width: 100%;
@@ -71,17 +72,18 @@
         gap: 32px;
     }
     .teamContainer {
+        width: 100%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
-        align-items: center;
+        align-items: stretch;
     }
     .certificatesContainer {
         width: 100%;
         max-height: 500px;
         position: relative;
         overflow: hidden;
-        background-color: rgb(240,240,240);
+        background-color: rgb(240, 240, 240);
         .arrowIcon {
             font-size: 24px;
             color: black;
@@ -100,53 +102,56 @@
 
 .teamMemberCard {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
+    margin: 0 auto;
     display: grid;
-    gap: 24px;
-    border-radius: 24px;
-    overflow: hidden;
-    .profileDesc {
-        display: grid;
-        .content {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            gap: 12px;
-            padding: 16px 20px;
-            font-family: $font-text;
-            .fullname {
-                font-size: 20px;
-                font-weight: 600;
-                font-family: $font-title;
+    grid-template-columns: 250px 1fr;
+    align-items: start;
+    gap: 48px;
+
+    .stickyImgContainer {
+        position: sticky;
+        top: 20px;
+        .imageContainer {
+            position: relative;
+            width: 100%;
+            height: 400px;
+            border-radius: 16px;
+            overflow: hidden;
+            .image {
+                object-fit: cover;
+                -webkit-user-drag: none;
             }
         }
     }
-    &.right .profileDesc {
-        grid-template-columns: 1fr 200px;
+    .content {
+        .fullname {
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .position {
+            margin-top: 12px;
+            font-size: 18px;
+            font-weight: 700;
+            color: $green-400;
+        }
+        .subposition {
+            font-family: 16px;
+            font-style: italic;
+            color: rgb(172, 172, 172);
+        }
         .content {
-            text-align: right;
-        }
-        .leftImage {
-            display: none;
-        }
-    }
-    &:not(.right) .profileDesc {
-        grid-template-columns: 200px 1fr;
-        .rightImage {
-            display: none;
-        }
-    }
-    .modileText {
-        display: none;
-    }
-    .imageContainer {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        .image {
-            object-fit: cover;
-            user-select: none;
-            -webkit-user-drag: none;
+            margin-top: 20px;
+            border-left: 4px solid $green-400;
+            padding: 0 0 0 16px;
+            p {
+                font-size: 16px;
+                line-height: 32px;
+                .icon {
+                    margin-right: 12px;
+                    color: $green-400;
+                }
+            }
         }
     }
 }
@@ -159,6 +164,15 @@
                     .description {
                         line-height: 28px;
                     }
+                }
+            }
+        }
+    }
+    .teamMemberCard {
+        .content {
+            .content {
+                p {
+                    line-height: 28px;
                 }
             }
         }
@@ -181,6 +195,37 @@
             }
         }
     }
+    .teamMemberCard {
+        grid-template-columns: 180px 1fr;
+        .stickyImgContainer {
+            .imageContainer {
+                height: 270px;
+                border-radius: 16px;
+            }
+        }
+    }
+}
+
+@media screen and (max-width: $tablet-size) {
+    .teamMemberCard {
+        gap: 24px;
+        grid-template-columns: 1fr;
+        $imageHeight: 440px;
+        grid-template-rows: $imageHeight 1fr;
+        .stickyImgContainer {
+            position: initial;
+            .imageContainer {
+                height: $imageHeight;
+            }
+        }
+        // .content {
+        //     .content {
+        //         p {
+        //             line-height: 24px;
+        //         }
+        //     }
+        // }
+    }
 }
 
 @media screen and (max-width: $mobile-size) {
@@ -195,40 +240,6 @@
         }
     }
     .teamMemberCard {
-        box-shadow: unset;
-        border-radius: unset;
-        overflow: unset;
-        .profileDesc {
-            .content {
-                .text {
-                    display: none;
-                }
-            }
-        }
-        $imageSize: 250px;
-        &.right .profileDesc {
-            grid-template-columns: 1fr;
-            grid-template-rows: $imageSize 1fr;
-            .content {
-                text-align: unset;
-            }
-            .leftImage {
-                display: block;
-            }
-            .rightImage {
-                display: none;
-            }
-        }
-        &:not(.right) .profileDesc {
-            grid-template-columns: 1fr;
-            grid-template-rows: $imageSize 1fr;
-        }
-        .imageContainer {
-            width: unset;
-            height: 100%;
-        }
-        .modileText {
-            display: block;
-        }
+        gap: 16px;
     }
 }

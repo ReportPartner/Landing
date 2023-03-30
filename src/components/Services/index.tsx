@@ -28,8 +28,8 @@ const Services = () => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.imageContainer}>
-                            <Image src={"/RP_logo.png"} alt={"Логотип RP"} fill priority className={styles.image} />
-                        </div>
+                <Image src={"/RP_logo.webp"} alt={"Логотип RP"} fill priority className={styles.image} />
+            </div>
             <Container>
                 <div className={styles.main} id={PAGE_PARTS.express.id}>
                     <ConfigProvider
@@ -59,7 +59,13 @@ const Services = () => {
                         >
                             <FloatButton
                                 description={
-                                    <a target="_blank" href={`https://wa.me/${CONTACT_NUMBER.replace(/\D/g, "")}?text=${whatsAppDefaultMessage}`}>
+                                    <a
+                                        target="_blank"
+                                        href={`https://wa.me/${CONTACT_NUMBER.replace(
+                                            /\D/g,
+                                            ""
+                                        )}?text=${whatsAppDefaultMessage}`}
+                                    >
                                         <FaWhatsapp fontSize={20} />
                                     </a>
                                 }

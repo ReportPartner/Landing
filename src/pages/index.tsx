@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 import EmailForm from "@/components/EmailForm";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { ALL_PACKAGES, COMPANY_NAME, COMPANY_SUBTITLE, PACKAGES_HEADING, PAGE_PARTS } from "@/constants/constants";
+import { ALL_PACKAGES, COMPANY_NAME, COMPANY_TITLE, COMPANY_PHRASE, PACKAGES_HEADING, PAGE_PARTS, COMPANY_SUBTITLE } from "@/constants/constants";
 import styles from "@/styles/Home.module.scss";
 import { Button, ConfigProvider } from "antd";
 import dynamic from "next/dynamic";
@@ -31,38 +31,38 @@ export default function Home() {
         <>
             <Head>
                 <title>Report Partner</title>
-                <meta name="description" content={COMPANY_SUBTITLE} />
+                <meta name="description" content={COMPANY_PHRASE} />
                 <meta
                     name="keywords"
                     content="бухгалтерия, бухгалтерские услуги, налоговая отчетность, налоговый учет, бухгалтерский учет, аутсорсинг бухгалтерии, финансовое консультирование, кадровый учет, зарплата и управление персоналом"
                 />
                 <meta property="og:title" content={COMPANY_NAME} />
-                <meta property="og:description" content={COMPANY_SUBTITLE} />
-                <meta property="og:image" content="/RP_logo_abbr.png" />
+                <meta property="og:description" content={COMPANY_PHRASE} />
+                <meta property="og:image" content="/RP_logo_abbr.webp" />
                 <meta property="og:type" content="website" />
                 <meta name="twitter:title" content={COMPANY_NAME} />
-                <meta name="twitter:description" content={COMPANY_SUBTITLE} />
-                <meta name="twitter:image" content="RP_logo_abbr.png" />
+                <meta name="twitter:description" content={COMPANY_PHRASE} />
+                <meta name="twitter:image" content="RP_logo_abbr.webp" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="icon" href="/RP_logo.png" />
+                <link rel="icon" href="/RP_logo.webp" />
             </Head>
             <Navbar />
             <main className={styles.main}>
                 <header className={styles.hero}>
                     <div className={styles.backgroundContainer}>
                         <div className={styles.imageContainer}>
-                            <Image src="/heroBackground.jpg" alt="Hero block" fill priority className={styles.background} />
+                            <Image src="/heroBackground.webp" alt="Hero block" fill priority className={styles.background} />
                         </div>
                     </div>
                     <div className={styles.topographicContainer}>
                         <div className={styles.imageContainer}>
-                            <Image src="/topographic1.png" alt="Hero block" fill priority className={styles.topographic} />
+                            <Image src="/topographic1.webp" alt="Hero block" fill priority className={styles.topographic} />
                         </div>
                     </div>
                     <div className={styles.symbolsContainer}>
                         <Container style={{ width: "100%", height: "100%" }}>
                             <div className={styles.imageContainer}>
-                                <Image src="/symbols1.png" alt="Hero block" fill priority className={styles.symbols} />
+                                <Image src="/symbols1.webp" alt="Hero block" fill priority className={styles.symbols} />
                             </div>
                         </Container>
                     </div>
@@ -71,7 +71,7 @@ export default function Home() {
                         <Container>
                             <div className={styles.wrapper}>
                                 <h3>{COMPANY_NAME}</h3>
-                                <h1>Сфокусируйся на бизнесе, а мы позаботимся обо всем остальном.</h1>
+                                <h1>{COMPANY_TITLE}</h1>
                                 <h5>{COMPANY_SUBTITLE}</h5>
                                 <ConfigProvider
                                     theme={{

@@ -9,7 +9,7 @@ const Navbar = () => {
         <BsNavbar collapseOnSelect expand="lg" className={styles.navbar}>
             <Container>
                 <div className={styles.logoContainer}>
-                    <Image src="/RP_logo_abbr.png" alt="Report Partner" priority fill className={styles.logo} />
+                    <Image src="/RP_logo_abbr.webp" alt="Report Partner" priority fill className={styles.logo} />
                 </div>
                 <div className={styles.mobileTogglerContainer}>
                     <Nav>

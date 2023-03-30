@@ -17,6 +17,7 @@
         opacity: 0.1;
         bottom: -2  0px;
         left: 0;
+        z-index: 0;
         transform: translateX(-50%);
         .imageContainer {
             width: 100%;
@@ -28,8 +29,9 @@
             }
         }
     }
-
     .main {
+        position: relative;
+        z-index: 10;
         width: 100%;
         display: grid;
         grid-template-areas: 
@@ -107,13 +109,23 @@
             }
             .contactInfos {
                 width: 100%;
-                max-width: 250px;
+                max-width: 240px;
                 display: flex;
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: flex-end;
                 gap: 12px;
                 text-align: right;
+                & > div {
+                    display: grid;
+                    grid-template-columns: auto 1fr;
+                    gap: 4px;
+                    .icon {
+                        color: $green-400;
+                        font-size: 20px;
+                        padding: 2px;
+                    }
+                }
             }
         }
     }

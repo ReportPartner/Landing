@@ -215,7 +215,7 @@ const Calculator = () => {
                     </span>
                 </div>
                 <div className={styles.imageContainer}>
-                    <Image src="/topographic2.png" alt="Calculator" fill priority className={styles.topographic} />
+                    <Image src="/topographic2.webp" alt="Calculator" fill priority className={styles.topographic} />
                 </div>
             </div>
         </ConfigProvider>

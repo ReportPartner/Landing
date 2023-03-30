@@ -20,8 +20,8 @@ const About = () => {
     const descriptions = [
         "мы специалисты с 20 летним стажем",
         "предоставляем услуги в сфере бухгалтерского, юридического и кадрового обслуживания",
-        "регулярно прокачиваем свои навыки",
         "начали свой путь в 2020 году",
+        "регулярно прокачиваем свои навыки",
         "24/7 отслеживаем изменения в законодательстве",
     ];
 
@@ -39,7 +39,7 @@ const About = () => {
                 <div className={styles.contentContainer}>
                     <div className={styles.backgroundFiller}>
                         <div className={`${styles.imageContainer} ${styles.teamImageContainer}`}>
-                            <Image src={"/team.png"} alt={"Team"} fill priority className={styles.teamImage} />
+                            <Image src={"/team.webp"} alt={"Team"} fill priority className={styles.teamImage} />
                         </div>
                     </div>
                     <div className={styles.descriptionContainer}>
@@ -79,7 +79,7 @@ const About = () => {
                         <div className={styles.teamContainer}>
                             {TEAM_MEMBERS.map((teamMember, index) => (
                                 <div key={index}>
-                                    <TeamMemberCard teamMember={teamMember} isRight={index % 2 === 1} />
+                                    <TeamMemberCard teamMember={teamMember} />
                                     {index !== TEAM_MEMBERS.length - 1 && <Divider />}
                                 </div>
                             ))}
@@ -102,9 +102,9 @@ const About = () => {
                                     </div>
                                 }
                             >
-                                {[...new Array(9)].map((_, index) => (
+                                {[...new Array(11)].map((_, index) => (
                                     <Carousel.Item key={index}>
-                                        <CertificateImage imgSrc={`/Certificates/${index + 1}.jpg`} />
+                                        <CertificateImage imgSrc={`/Certificates/${index + 1}.webp`} />
                                     </Carousel.Item>
                                 ))}
                             </Carousel>

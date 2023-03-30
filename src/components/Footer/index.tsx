@@ -1,15 +1,28 @@
-import { COMPANY_NAME, COMPANY_SUBTITLE, CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
+import { COMPANY_NAME, COMPANY_PHRASE, CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
 import styles from "./Footer.module.scss";
+import { GrMail } from "react-icons/gr";
 
 const Footer = () => {
     const contacts = [
-        "info@reportpartner.kz",
-        CONTACT_NUMBER,
-        "+7 (707) 655-65-55",
-        'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201',
+        {
+            Icon: GrMail,
+            content: "info@reportpartner.kz",
+        },
+        {
+            Icon: FaPhone,
+            content: CONTACT_NUMBER,
+        },
+        {
+            Icon: FaPhone,
+            content: "+7 (707) 655-65-55",
+        },
+        {
+            Icon: FaMapMarkerAlt,
+            content: 'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201',
+        },
     ];
 
     const getYearRangeFrom = (startYear: number) => {
@@ -25,13 +38,13 @@ const Footer = () => {
         <div className={styles.container}>
             <div className={styles.logoContainer}>
                 <div className={styles.imageContainer}>
-                    <Image src={"/RP_logo.png"} alt="Логотип RP" fill className={styles.logo} />
+                    <Image src={"/RP_logo.webp"} alt="Логотип RP" fill className={styles.logo} />
                 </div>
             </div>
             <div className={styles.main}>
                 <div className={styles.companyContainer}>
                     <h3 className={styles.title}>{COMPANY_NAME}</h3>
-                    <h5 className={styles.subtitle}>{COMPANY_SUBTITLE}</h5>
+                    <h5 className={styles.subtitle}>{COMPANY_PHRASE}</h5>
                 </div>
                 <Nav className={styles.linkContainer}>
                     {Object.keys(PAGE_PARTS).map((pagePart) => (
@@ -49,7 +62,10 @@ const Footer = () => {
                     </div>
                     <div className={styles.contactInfos}>
                         {contacts.map((contact) => (
-                            <h6 key={contact}>{contact}</h6>
+                            <div key={contact.content}>
+                                <contact.Icon className={styles.icon} />
+                                <h6>{contact.content}</h6>
+                            </div>
                         ))}
                     </div>
                 </div>

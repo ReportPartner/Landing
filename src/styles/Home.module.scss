@@ -111,10 +111,33 @@
                 }
 
                 .moreBtn {
-                    color: inherit;
+                    display: block;
+                    width: max-content;
+                    position: relative;
+                    padding: 6px 10px;
+                    border-radius: 6px;
+                    color: $green-300;
                     text-decoration: none;
+                    transition: color .2s;
                     &:hover {
-                        color: inherit;
+                        color: $green-200;
+                    }
+                    .arrow {
+                        font-size: 28px;
+                        position: absolute;
+                        bottom: 12px;
+                        left: 50%;
+                        transform: translate(-50%, 100%);
+                        animation: arrowAnimation 1s infinite alternate;
+                        opacity: .5;
+                        @keyframes arrowAnimation {
+                            from {
+                                transform: translate(-50%, 100%);
+                            }
+                            to {
+                                transform: translate(-50%, calc(100% + 5px));
+                            }
+                        }
                     }
                 }
             }
@@ -156,6 +179,13 @@
 @media screen and (max-width: $tablet-size) {
     .main {
         .hero {
+            .topographicContainer {
+                display: none;
+            }
+            .symbolsContainer {
+                top: 240px;
+                height: 180px;
+            }
             .textContainer {
                 .wrapper {
                     max-width: 75%;
@@ -182,9 +212,6 @@
 @media screen and (max-width: $mobile-size) {
     .main {
         .hero {
-            .symbolsContainer {
-                height: 100px;
-            }
             .textContainer {
                 .wrapper {
                     max-width: 85%;

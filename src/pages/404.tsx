@@ -7,7 +7,7 @@ const ErrorPage = () => {
     return (
         <div className={styles.main}>
             <div className={styles.imageContainer}>
-                <Image className={styles.image} src={"/RP_logo_abbr.webp"} alt="Логотип RP" fill />
+                <Image className={styles.image} src={"/RP_logo_abbr.webp"} alt="" fill />
             </div>
             <h3>Усп! Такой страницы не существует</h3>
             <ConfigProvider

@@ -6,7 +6,6 @@ import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
 import { ALL_PACKAGES, COMPANY_NAME, COMPANY_TITLE, COMPANY_PHRASE, PACKAGES_HEADING, PAGE_PARTS, COMPANY_SUBTITLE } from "@/constants/constants";
 import styles from "@/styles/Home.module.scss";
-import { Button, ConfigProvider } from "antd";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Image from "next/image";
@@ -51,18 +50,18 @@ export default function Home() {
                 <header className={styles.hero}>
                     <div className={styles.backgroundContainer}>
                         <div className={styles.imageContainer}>
-                            <Image src="/heroBackground.webp" alt="Hero block" fill priority className={styles.background} />
+                            <Image src="/heroBackground.webp" alt="" fill priority className={styles.background} />
                         </div>
                     </div>
                     <div className={styles.topographicContainer}>
                         <div className={styles.imageContainer}>
-                            <Image src="/topographic1.webp" alt="Hero block" fill priority className={styles.topographic} />
+                            <Image src="/topographic1.webp" alt="" fill priority className={styles.topographic} />
                         </div>
                     </div>
                     <div className={styles.symbolsContainer}>
                         <Container style={{ width: "100%", height: "100%" }}>
                             <div className={styles.imageContainer}>
-                                <Image src="/symbols1.webp" alt="Hero block" fill priority className={styles.symbols} />
+                                <Image src="/symbols1.webp" alt="" fill priority className={styles.symbols} />
                             </div>
                         </Container>
                     </div>
@@ -73,19 +72,6 @@ export default function Home() {
                                 <h3>{COMPANY_NAME}</h3>
                                 <h1>{COMPANY_TITLE}</h1>
                                 <h5>{COMPANY_SUBTITLE}</h5>
-                                <ConfigProvider
-                                    theme={{
-                                        token: {
-                                            colorPrimary: "#588F27",
-                                        },
-                                    }}
-                                >
-                                    <Button type="primary" ghost>
-                                        <a className={styles.moreBtn} href={`#${PAGE_PARTS.calculator.id}`}>
-                                            Узнать больше
-                                        </a>
-                                    </Button>
-                                </ConfigProvider>
                             </div>
                         </Container>
                     </div>
@@ -97,7 +83,6 @@ export default function Home() {
                         </ArticlePart>
                         <ArticlePart
                             title={PAGE_PARTS.prices.title}
-                            subtitle={packagesHeadings.join(", ")}
                             id={PAGE_PARTS.prices.id}
                         >
                             <ServicesTable />

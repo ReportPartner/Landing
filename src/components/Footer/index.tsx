@@ -38,7 +38,7 @@ const Footer = () => {
         <div className={styles.container}>
             <div className={styles.logoContainer}>
                 <div className={styles.imageContainer}>
-                    <Image src={"/RP_logo.webp"} alt="Логотип RP" fill className={styles.logo} />
+                    <Image src={"/RP_logo.webp"} alt="" fill className={styles.logo} />
                 </div>
             </div>
             <div className={styles.main}>
@@ -57,7 +57,7 @@ const Footer = () => {
                     <div className={styles.socials}>
                         <span>Мы в Instagram:</span>
                         <a href="https://www.instagram.com/reportpartner/" target="_blank">
-                            <FaInstagram />
+                            <FaInstagram className={styles.icon} /> reportpartner
                         </a>
                     </div>
                     <div className={styles.contactInfos}>

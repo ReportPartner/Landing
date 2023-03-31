@@ -10,6 +10,7 @@
     gap: 48px;
     padding-bottom: 32px;
     position: relative;
+    z-index: 1;
     .logoContainer {
         width: 250px;
         height: 250px;
@@ -94,14 +95,15 @@
                     display: flex;
                     justify-content: center;
                     align-items: center;
-                    $size: 30px;
+                    gap: 4px;
+                    font-weight: 600;
                     color: black;
-                    width: $size;
-                    height: $size;
-                    border-radius: $size;
-                    background-color: white;
-                    box-shadow: 0 2px 12px rgba($green-400, 0.2);
                     transition: color .2s;
+                    text-decoration: none;
+                    .icon {
+                        font-size: 18px;
+                        color: $green-400;
+                    }
                     &:hover {
                         color: $green-400;
                     }

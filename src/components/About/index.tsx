@@ -11,7 +11,7 @@ import TeamMemberCard from "./TeamMemberCard";
 const CertificateImage = ({ imgSrc }: { imgSrc: string }) => {
     return (
         <div className={styles.imageContainer}>
-            <Image src={imgSrc} alt="Certificate" fill className={styles.image} />
+            <Image src={imgSrc} alt="" fill className={styles.image} />
         </div>
     );
 };
@@ -45,7 +45,7 @@ const About = () => {
                     <div className={styles.descriptionContainer}>
                         <Container>
                             <p className={styles.description}>
-                                Привет всем, мы «Report Partner» - профессиональная бухгалтерская компания
+                                Мы «Report Partner» - профессиональная бухгалтерская компания
                                 <ul>
                                     {descriptions.map((description) => (
                                         <li key={description}>

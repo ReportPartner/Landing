@@ -1,5 +1,6 @@
 import { ALL_PACKAGES, PACKAGES_HEADING, ServiceType } from "@/constants/constants";
 import { Tooltip } from "antd";
+import { GetServerSideProps } from "next";
 import { useState } from "react";
 import { FaCheck, FaChevronDown, FaInfoCircle, FaLevelDownAlt, FaStarOfLife } from "react-icons/fa";
 import styles from "./Packages.module.scss";

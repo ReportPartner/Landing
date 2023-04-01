@@ -4,6 +4,7 @@
     width: 100%;
     background: linear-gradient(to right bottom, #002900, #001f00);
     position: relative;
+    z-index: 50;
     .imageContainer {
         position: absolute;
         width: 300px;

@@ -4,7 +4,15 @@ import Container from "@/components/Container";
 import EmailForm from "@/components/EmailForm";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-import { ALL_PACKAGES, COMPANY_NAME, COMPANY_TITLE, COMPANY_PHRASE, PACKAGES_HEADING, PAGE_PARTS, COMPANY_SUBTITLE } from "@/constants/constants";
+import {
+    ALL_PACKAGES,
+    COMPANY_NAME,
+    COMPANY_TITLE,
+    COMPANY_PHRASE,
+    PACKAGES_HEADING,
+    PAGE_PARTS,
+    COMPANY_SUBTITLE,
+} from "@/constants/constants";
 import styles from "@/styles/Home.module.scss";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -81,10 +89,7 @@ export default function Home() {
                         <ArticlePart title={PAGE_PARTS.calculator.title} id={PAGE_PARTS.calculator.id}>
                             <Calculator />
                         </ArticlePart>
-                        <ArticlePart
-                            title={PAGE_PARTS.prices.title}
-                            id={PAGE_PARTS.prices.id}
-                        >
+                        <ArticlePart title={PAGE_PARTS.prices.title} id={PAGE_PARTS.prices.id}>
                             <ServicesTable />
                         </ArticlePart>
                         <ArticlePart title={PAGE_PARTS.services.title} id={PAGE_PARTS.services.id} />

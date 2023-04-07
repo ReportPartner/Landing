@@ -197,8 +197,15 @@ const Subpackage = ({
 const PackagesTable = () => {
     return (
         <div className={styles.main}>
+            <p className={styles.description}>
+                Представляем наши тарифные планы для <a href={`#${ALL_PACKAGES[0].packageId}`}>начинающих</a> и <a href={`#${ALL_PACKAGES[1].packageId}`}>действующих</a> бизнесов, с основным преимуществом -
+                комплексное обслуживание, включая бухгалтерское, кадровое и юридическое сопровождение. Наши тарифы
+                разработаны с учетом особенностей каждого бизнеса, обеспечивая максимальную эффективность работы. Мы
+                предлагаем идеальное соотношение цены и качества, готовы предоставить высококвалифицированные услуги,
+                позволяющие сосредоточиться на развитии бизнеса. Подробнее о тарифах и услугах - ниже.
+            </p>
             {ALL_PACKAGES.map((packageRoot) => (
-                <div className={styles.packageRoot} key={packageRoot.packageId}>
+                <div className={styles.packageRoot} key={packageRoot.packageId} id={packageRoot.packageId}>
                     <div className={styles.tableContainer}>
                         <table className={styles.table}>
                             <thead className={styles.heading}>

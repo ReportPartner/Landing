@@ -48,6 +48,7 @@ const EmailForm = () => {
             if (form && form.current) {
                 emailjs.sendForm("service_b6q6nsr", "template_fec15ol", form.current, "CxFzI_MUKQBWSamJR").then(
                     () => {
+                        setValues({});
                         setLoading(false);
                         notification.success({
                             message: "Отлично!",
@@ -91,6 +92,7 @@ const EmailForm = () => {
                         <FormLabel>{inputNames.name.label}</FormLabel>
                         <Input
                             prefix={<span />}
+                            value={values[inputNames.name.name]}
                             onChange={handleChangeValue}
                             type="text"
                             name={inputNames.name.name}
@@ -105,6 +107,7 @@ const EmailForm = () => {
                         <FormLabel>{inputNames.phone.label}</FormLabel>
                         <Input
                             prefix={<span />}
+                            value={values[inputNames.phone.name]}
                             onChange={handleChangeValue}
                             type="tel"
                             name={inputNames.phone.name}
@@ -119,6 +122,7 @@ const EmailForm = () => {
                         <FormLabel>{inputNames.email.label}</FormLabel>
                         <Input
                             prefix={<span />}
+                            value={values[inputNames.email.name]}
                             onChange={handleChangeValue}
                             type="email"
                             name={inputNames.email.name}

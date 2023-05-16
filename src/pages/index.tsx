@@ -51,6 +51,8 @@ export default function Home() {
                 <meta name="twitter:description" content={COMPANY_PHRASE} />
                 <meta name="twitter:image" content="RP_logo_abbr.webp" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <meta name="msvalidate.01" content="30105B20709F526DFCF917DEBCDD2E41" />
+                <meta name="robots" content="index" />
                 <link rel="icon" href="/RP_logo.webp" />
             </Head>
             <Navbar />

@@ -162,24 +162,25 @@ const PACKAGES = {
     basic: {
         id: "basic",
         title: "Базовый",
+        subtitle: "для ИП",
         price: 70000,
     },
     standart: {
         id: "standart",
         title: "Стандарт",
-        price: 130000,
+        price: 180000,
     },
     standart_p: {
         id: "standart_p",
         title: "Стандарт+",
-        price: 180000,
+        price: 250000,
     },
     business: {
         id: "business",
         title: "Бизнес",
-        price: 300000,
+        price: 350000,
     },
-};
+} as { [key: string]: { id: string; title: string; subtitle?: string; price: number } };
 
 export const PACKAGES_HEADING = {
     starting: [PACKAGES.start, PACKAGES.start_p],

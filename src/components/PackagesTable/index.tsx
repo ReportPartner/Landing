@@ -222,7 +222,12 @@ const PackagesTable = () => {
                                     {PACKAGES_HEADING[packageRoot.packageId].map((packageItem, index) => (
                                         <th key={index}>
                                             <div className={`${styles.packageTitle} ${styles[packageItem.id]}`}>
-                                                <span className={styles.title}>{packageItem.title}</span>
+                                                <div className={styles.titleContainer}>
+                                                    <span className={styles.title}>{packageItem.title}</span>
+                                                    {!!packageItem.subtitle && (
+                                                        <span className={styles.subtitle}>{packageItem.subtitle}</span>
+                                                    )}
+                                                </div>
                                                 <span className={styles.price}>{packageItem.price.toLocaleString()}</span>
                                             </div>
                                         </th>
@@ -242,6 +247,9 @@ const PackagesTable = () => {
                     </div>
                 </div>
             ))}
+            <h6 className={styles.postTableText}>
+                * стоимость тарифов указана без учета НДС
+            </h6>
         </div>
     );
 };

@@ -48,10 +48,15 @@
                 .heading {
                     z-index: 20;
                     background-color: white;
-                    & th:first-child {
+                    th.freezedColumn {
                         background-color: white;
                         position: sticky;
+                        z-index: 100;
                         left: 0;
+                    }
+                    & th:not(.freezedColumn) {
+                        position: relative;
+                        z-index: 10;
                     }
                     .packageTitle {
                         text-align: center;

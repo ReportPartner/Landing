@@ -216,7 +216,7 @@ const PackagesTable = () => {
                         <table className={styles.table}>
                             <thead className={styles.heading}>
                                 <tr>
-                                    <th>
+                                    <th className={styles.freezedColumn}>
                                         <h3 className={styles.mainTitle}>{packageRoot.title}</h3>
                                     </th>
                                     {PACKAGES_HEADING[packageRoot.packageId].map((packageItem, index) => (

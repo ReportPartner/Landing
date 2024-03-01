@@ -4,7 +4,61 @@ import Script from "next/script";
 export default function Document() {
     return (
         <Html lang="en">
-            <Head />
+            <Head>
+                <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16473166159" />
+                <script>
+                    {`
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        gtag('js', new Date());
+                        gtag('config', 'AW-16473166159');
+                    `}
+                </script>
+                <script type="text/javascript">
+                    {`
+                        var yaParams = {};
+                        var xhr = new XMLHttpRequest();
+                        xhr.open('GET', 'http://ip.up66.ru/', true);
+                        xhr.onload = function() {
+                            yaParams.ip = this.responseText;
+                        }
+                        xhr.send();
+                    `}
+                </script>
+                <script type="text/javascript">
+                    {`
+                        (function (d, w, c) {
+                            (w[c] = w[c] || []).push(function() {
+                                try {
+                                    w.yaCounter96590487 = new Ya.Metrika({
+                                        id:96590487,
+                                        params:window.yaParams,
+                                        clickmap:true,
+                                        trackLinks:true,
+                                        accurateTrackBounce:true,
+                                        webvisor:true
+                                    });
+                                } catch(e) { }
+                            });
+
+                            var n = d.getElementsByTagName("script")[0],
+                                x = "https://mc.yandex.ru/metrika/watch.js",
+                                s = d.createElement("script"),
+                                f = function () { n.parentNode.insertBefore(s, n); };
+                            for (var i = 0; i < document.scripts.length; i++) {
+                                if (document.scripts[i].src === x) { return; }
+                            }
+                            s.type = "text/javascript";
+                            s.async = true;
+                            s.src = x;
+
+                            if (w.opera == "[object Opera]") {
+                                d.addEventListener("DOMContentLoaded", f, false);
+                            } else { f(); }
+                        })(document, window, "yandex_metrika_callbacks");
+                    `}
+                </script>
+            </Head>
             <Script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></Script>
             <Script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></Script>
             <Script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"></Script>
@@ -29,6 +83,15 @@ export default function Document() {
                 integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
             />
             <body>
+                <noscript>
+                    <div>
+                        <img
+                            src="https://mc.yandex.ru/watch/96590487"
+                            style={{ position: "absolute", left: "-9999px" }}
+                            alt=""
+                        />
+                    </div>
+                </noscript>
                 <Main />
                 <NextScript />
             </body>

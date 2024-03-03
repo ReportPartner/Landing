@@ -37,76 +37,6 @@
             text-shadow: 0 0 15px rgba($green-400, 0.4);
             text-transform: uppercase;
         }
-        .fab {
-            $offset: 48px;
-            &.expressCheckUp {
-                width: max-content;
-                right: unset;
-                left: $offset;
-                animation: expressCheckUp infinite alternate 1s;
-                @keyframes expressCheckUp {
-                    from {
-                        box-shadow: 0 0 15px 0 $green-400;
-                    }
-                    to {
-                        box-shadow: 0 0 25px 5px $green-400;
-                    }
-                }
-                a {
-                    padding: 0 16px;
-                    height: 40px;
-                    color: $white-400;
-                    display: flex;
-                    align-items: center;
-                    font-family: $font-text;
-                    font-weight: 600;
-                }
-            }
-            &.contact {
-                width: max-content;
-                right: $offset;
-                .shakingContainer {
-                    width: 40px;
-                    height: 40px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    .shakingIcon {
-                        font-size: 20px;
-                        animation: shake 1s ease-in-out infinite;
-                        color: $green-400;
-                        @keyframes shake {
-                            0%,
-                            40% {
-                                transform: rotate(0deg) scale(1);
-                            }
-                            45% {
-                                transform: rotate(8deg) scale(1.05);
-                            }
-                            50% {
-                                transform: rotate(0deg) scale(1);
-                            }
-                            55% {
-                                transform: rotate(-8deg) scale(1.05);
-                            }
-                            60%,
-                            100% {
-                                transform: rotate(0deg) scale(1);
-                            }
-                        }
-                    }
-                }
-                a {
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    width: 40px;
-                    height: 40px;
-                    font-size: 16px;
-                    color: $green-400;
-                }
-            }
-        }
         .contentPart {
             max-width: 900px;
             display: flex;
@@ -182,6 +112,78 @@
                     gap: 24px;
                 }
             }
+        }
+    }
+}
+
+.fab {
+    z-index: 10000;
+    $offset: 48px;
+    &.expressCheckUp {
+        width: max-content;
+        right: unset;
+        left: $offset;
+        animation: expressCheckUp infinite alternate 1s;
+        @keyframes expressCheckUp {
+            from {
+                box-shadow: 0 0 15px 0 $green-400;
+            }
+            to {
+                box-shadow: 0 0 25px 5px $green-400;
+            }
+        }
+        a {
+            padding: 0 16px;
+            height: 40px;
+            color: $white-400;
+            display: flex;
+            align-items: center;
+            font-family: $font-text;
+            font-weight: 600;
+        }
+    }
+    &.contact {
+        width: max-content;
+        right: $offset;
+        .shakingContainer {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .shakingIcon {
+                font-size: 20px;
+                animation: shake 1s ease-in-out infinite;
+                color: $green-400;
+                @keyframes shake {
+                    0%,
+                    40% {
+                        transform: rotate(0deg) scale(1);
+                    }
+                    45% {
+                        transform: rotate(8deg) scale(1.05);
+                    }
+                    50% {
+                        transform: rotate(0deg) scale(1);
+                    }
+                    55% {
+                        transform: rotate(-8deg) scale(1.05);
+                    }
+                    60%,
+                    100% {
+                        transform: rotate(0deg) scale(1);
+                    }
+                }
+            }
+        }
+        a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            font-size: 16px;
+            color: $green-400;
         }
     }
 }

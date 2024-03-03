@@ -4,6 +4,7 @@ import Image from "next/image";
 import { FaCommentDots, FaPhone, FaWhatsapp } from "react-icons/fa";
 import Container from "../Container";
 import styles from "./Services.module.scss";
+import { createPortal } from "react-dom";
 
 const Services = () => {
     const expressCheckUpPrice = 30000;
@@ -39,49 +40,54 @@ const Services = () => {
                             },
                         }}
                     >
-                        <FloatButton
-                            className={`${styles.fab} ${styles.expressCheckUp}`}
-                            description={<a href={`#${PAGE_PARTS.express.id}`}>{PAGE_PARTS.express.title}</a>}
-                            shape={"square"}
-                            type={"primary"}
-                        />
-                        <FloatButton.Group
-                            className={`${styles.fab} ${styles.contact}`}
-                            closeIcon={null}
-                            icon={null}
-                            description={
-                                <div className={styles.shakingContainer}>
-                                    <FaCommentDots className={styles.shakingIcon} />
-                                </div>
-                            }
-                            trigger="hover"
-                            shape="square"
-                        >
-                            <FloatButton
-                                description={
-                                    <a
-                                        target="_blank"
-                                        href={`https://wa.me/${CONTACT_NUMBER.replace(
-                                            /\D/g,
-                                            ""
-                                        )}?text=${whatsAppDefaultMessage}`}
-                                    >
-                                        <FaWhatsapp fontSize={20} />
-                                    </a>
-                                }
-                                shape="square"
-                                tooltip="Написать в WhatsApp"
-                            />
-                            <FloatButton
-                                description={
-                                    <a target="_blank" href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}>
-                                        <FaPhone />
-                                    </a>
-                                }
-                                shape="square"
-                                tooltip="Позвонить"
-                            />
-                        </FloatButton.Group>
+                        {createPortal(
+                            <>
+                                <FloatButton
+                                    className={`${styles.fab} ${styles.expressCheckUp}`}
+                                    description={<a href={`#${PAGE_PARTS.express.id}`}>{PAGE_PARTS.express.title}</a>}
+                                    shape={"square"}
+                                    type={"primary"}
+                                />
+                                <FloatButton.Group
+                                    className={`${styles.fab} ${styles.contact}`}
+                                    closeIcon={null}
+                                    icon={null}
+                                    description={
+                                        <div className={styles.shakingContainer}>
+                                            <FaCommentDots className={styles.shakingIcon} />
+                                        </div>
+                                    }
+                                    trigger="hover"
+                                    shape="square"
+                                >
+                                    <FloatButton
+                                        description={
+                                            <a
+                                                target="_blank"
+                                                href={`https://wa.me/${CONTACT_NUMBER.replace(
+                                                    /\D/g,
+                                                    ""
+                                                )}?text=${whatsAppDefaultMessage}`}
+                                            >
+                                                <FaWhatsapp fontSize={20} />
+                                            </a>
+                                        }
+                                        shape="square"
+                                        tooltip="Написать в WhatsApp"
+                                    />
+                                    <FloatButton
+                                        description={
+                                            <a target="_blank" href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}>
+                                                <FaPhone />
+                                            </a>
+                                        }
+                                        shape="square"
+                                        tooltip="Позвонить"
+                                    />
+                                </FloatButton.Group>
+                            </>,
+                            document.body
+                        )}
                         <h4 className={styles.mainTitle}>Экспресс проверка бух учета</h4>
                         <div className={styles.contentPart}>
                             <div className={styles.pricesContainer}>

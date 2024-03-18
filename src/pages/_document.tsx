@@ -6,26 +6,51 @@ export default function Document() {
         <Html lang="en">
             <Head>
                 <script async src="https://www.googletagmanager.com/gtag/js?id=AW-16473166159" />
-                <script>
+                <Script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></Script>
+                <Script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></Script>
+                <Script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"></Script>
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" />
+                <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet" />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+                    rel="stylesheet"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+                    rel="stylesheet"
+                />
+                <link
+                    href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
+                    rel="stylesheet"
+                />
+                <link
+                    href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+                    rel="stylesheet"
+                    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+                />
+            </Head>
+            <body>
+                <Script id="g_1" strategy="beforeInteractive">
                     {`
                         window.dataLayer = window.dataLayer || [];
                         function gtag(){dataLayer.push(arguments);}
                         gtag('js', new Date());
                         gtag('config', 'AW-16473166159');
                     `}
-                </script>
-                <script type="text/javascript">
+                </Script>
+                <Script id="ya_1" strategy="beforeInteractive">
                     {`
                         var yaParams = {};
                         var xhr = new XMLHttpRequest();
                         xhr.open('GET', 'http://ip.up66.ru/', true);
                         xhr.onload = function() {
-                            yaParams.ip = this.responseText;
+                        yaParams.ip = this.responseText;
                         }
                         xhr.send();
                     `}
-                </script>
-                <script type="text/javascript">
+                </Script>
+                <Script id="ya_2" strategy="beforeInteractive">
                     {`
                         (function (d, w, c) {
                             (w[c] = w[c] || []).push(function() {
@@ -57,32 +82,7 @@ export default function Document() {
                             } else { f(); }
                         })(document, window, "yandex_metrika_callbacks");
                     `}
-                </script>
-            </Head>
-            <Script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js"></Script>
-            <Script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js"></Script>
-            <Script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js"></Script>
-            <link rel="preconnect" href="https://fonts.googleapis.com" />
-            <link rel="preconnect" href="https://fonts.gstatic.com" />
-            <link href="https://fonts.googleapis.com/css2?family=Forum&display=swap" rel="stylesheet" />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-                rel="stylesheet"
-            />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
-                rel="stylesheet"
-            />
-            <link
-                href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600;700&display=swap"
-                rel="stylesheet"
-            />
-            <link
-                href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
-                rel="stylesheet"
-                integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
-            />
-            <body>
+                </Script>
                 <noscript>
                     <div>
                         <img

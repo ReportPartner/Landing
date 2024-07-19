@@ -1,4 +1,4 @@
-import { CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
+import { CONTACT_NUMBER_MAIN, PAGE_PARTS } from "@/constants/constants";
 import Image from "next/image";
 import { Container, Nav, Navbar as BsNavbar } from "react-bootstrap";
 import { FaPhone } from "react-icons/fa";
@@ -15,9 +15,9 @@ const Navbar = () => {
                     <Nav>
                         <a
                             className={`${styles.phoneNumber} ${styles.mobile}`}
-                            href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}
+                            href={`tel:+${CONTACT_NUMBER_MAIN.replace(/\D/g, "")}`}
                         >
-                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER}
+                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER_MAIN}
                         </a>
                     </Nav>
                     <BsNavbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -35,8 +35,8 @@ const Navbar = () => {
                         ))}
                     </Nav>
                     <Nav>
-                        <a className={styles.phoneNumber} href={`tel:${CONTACT_NUMBER.replace(/\D/g, "")}`}>
-                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER}
+                        <a className={styles.phoneNumber} href={`tel:+${CONTACT_NUMBER_MAIN.replace(/\D/g, "")}`}>
+                            <FaPhone className={styles.icon} /> {CONTACT_NUMBER_MAIN}
                         </a>
                     </Nav>
                 </BsNavbar.Collapse>

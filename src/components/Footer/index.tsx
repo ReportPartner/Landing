@@ -1,39 +1,27 @@
-import { COMPANY_NAME, COMPANY_PHRASE, CONTACT_NUMBER, PAGE_PARTS } from "@/constants/constants";
+import {
+    COMPANY_NAME,
+    COMPANY_PHRASE,
+    CONTACT_NUMBER_MAIN,
+    CONTACT_NUMBER_SECOND,
+    EMAIL,
+    PAGE_PARTS,
+} from "@/constants/constants";
 import Image from "next/image";
 import { Nav } from "react-bootstrap";
-import { FaInstagram, FaPhone, FaMapMarkerAlt } from "react-icons/fa";
-import styles from "./Footer.module.scss";
+import { FaInstagram, FaMapMarkerAlt, FaPhone } from "react-icons/fa";
 import { GrMail } from "react-icons/gr";
+import styles from "./Footer.module.scss";
+
+const getYearRangeFrom = (startYear: number) => {
+    const currentYear = new Date().getFullYear();
+    if (startYear === currentYear) {
+        return `${currentYear}`;
+    } else {
+        return `${startYear} - ${currentYear}`;
+    }
+};
 
 const Footer = () => {
-    const contacts = [
-        {
-            Icon: GrMail,
-            content: "info@reportpartner.kz",
-        },
-        {
-            Icon: FaPhone,
-            content: CONTACT_NUMBER,
-        },
-        {
-            Icon: FaPhone,
-            content: "+7 (707) 655-65-55",
-        },
-        {
-            Icon: FaMapMarkerAlt,
-            content: 'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201',
-        },
-    ];
-
-    const getYearRangeFrom = (startYear: number) => {
-        const currentYear = new Date().getFullYear();
-        if (startYear === currentYear) {
-            return `${currentYear}`;
-        } else {
-            return `${startYear} - ${currentYear}`;
-        }
-    };
-
     return (
         <div className={styles.container}>
             <div className={styles.logoContainer}>
@@ -61,12 +49,28 @@ const Footer = () => {
                         </a>
                     </div>
                     <div className={styles.contactInfos}>
-                        {contacts.map((contact) => (
-                            <div key={contact.content}>
-                                <contact.Icon className={styles.icon} />
-                                <h6>{contact.content}</h6>
-                            </div>
-                        ))}
+                        <div>
+                            <a className={styles.link} href={`mailto:${EMAIL}`}>
+                                <GrMail className={styles.icon} />
+                                <h6>{EMAIL}</h6>
+                            </a>
+                        </div>
+                        <div>
+                            <a className={styles.link} href={`tel:+${CONTACT_NUMBER_MAIN.replace(/\D/g, "")}`}>
+                                <FaPhone className={styles.icon} />
+                                <h6>{CONTACT_NUMBER_MAIN}</h6>
+                            </a>
+                        </div>
+                        <div>
+                            <a className={styles.link} href={`tel:+${CONTACT_NUMBER_SECOND.replace(/\D/g, "")}`}>
+                                <FaPhone className={styles.icon} />
+                                <h6>{CONTACT_NUMBER_SECOND}</h6>
+                            </a>
+                        </div>
+                        <div>
+                            <FaMapMarkerAlt className={styles.icon} />
+                            <h6>{'г.Алматы, пр.Аль-Фараби 5, БЦ "Нурлы тау", корпус 2а, офис 201'}</h6>
+                        </div>
                     </div>
                 </div>
             </div>
